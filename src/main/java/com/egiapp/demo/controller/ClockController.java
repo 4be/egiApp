@@ -47,9 +47,9 @@ public class ClockController {
 
         if (errors.hasErrors()) {
             for (ObjectError error : errors.getAllErrors()) {
-                responseData.getMessages().add(error.getDefaultMessage());
+                responseData.setMessages(error.getDefaultMessage());
             }
-            responseData.setStatus(false);
+            responseData.setStatus(200);
             responseData.setPayload(null);
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(responseData);
         }
@@ -57,7 +57,7 @@ public class ClockController {
         clockinr.setWorking(true);
         clockinr.setUser_id(clockinData.getUser_id());
 
-        responseData.setStatus(true);
+        responseData.setStatus(200);
         responseData.setPayload(clockService.create(clockinr, Boolean.TRUE));
         return ResponseEntity.status(HttpStatus.CREATED).body(responseData);
     }
@@ -74,9 +74,9 @@ public class ClockController {
 
         if (errors.hasErrors()) {
             for (ObjectError error : errors.getAllErrors()) {
-                responseData.getMessages().add(error.getDefaultMessage());
+                responseData.setMessages(error.getDefaultMessage());
             }
-            responseData.setStatus(false);
+            responseData.setStatus(200);
             responseData.setPayload(null);
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(responseData);
         }
@@ -84,7 +84,7 @@ public class ClockController {
         clockinr.setWorking(false);
         clockinr.setUser_id(clockoutData.getUser_id());
 
-        responseData.setStatus(true);
+        responseData.setStatus(200);
         responseData.setPayload(clockService.create(clockinr, Boolean.FALSE));
         return ResponseEntity.ok(responseData);
     }

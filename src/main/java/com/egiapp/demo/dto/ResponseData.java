@@ -7,23 +7,23 @@ import java.util.List;
 
 @Data
 public class ResponseData<T> {
-    private boolean status;
-    private List<String> messages = new ArrayList<>();
+    private int status;
+    private String messages;
     private T payload;
 
-    public boolean isStatus() {
+    public int isStatus() {
         return status;
     }
 
-    public void setStatus(boolean status) {
+    public void setStatus(int status) {
         this.status = status;
     }
 
-    public List<String> getMessages() {
+    public String getMessages() {
         return messages;
     }
 
-    public void setMessages(List<String> messages) {
+    public void setMessages(String messages) {
         this.messages = messages;
     }
 

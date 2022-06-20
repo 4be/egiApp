@@ -33,9 +33,9 @@ public class PenilaianController {
 
         if (errors.hasErrors()) {
             for (ObjectError error : errors.getAllErrors()) {
-                responseData.getMessages().add(error.getDefaultMessage());
+                responseData.setMessages(error.getDefaultMessage());
             }
-            responseData.setStatus(false);
+            responseData.setStatus(200);
             responseData.setPayload(null);
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(responseData);
         }
@@ -57,15 +57,24 @@ public class PenilaianController {
         penilaian.setNiktujuan(keteranganData.getNiktujuan());
         penilaian.setUser_id(keteranganData.getUser_id());
 
-        responseData.setStatus(true);
-        responseData.setMessages(responseData.getMessages());
+        responseData.setStatus(200);
+        responseData.setMessages("success");
         responseData.setPayload(keteranganService.create(penilaian));
         return ResponseEntity.status(HttpStatus.CREATED).body(responseData);
     }
 
     @GetMapping("/list")
-    public Iterable<Penilaian> findAll() {
-        return keteranganService.findAll();
+    public ResponseEntity<ResponseData<Iterable<Penilaian>>> findAll() {
+
+
+        ResponseData<Iterable<Penilaian>> responseData = new ResponseData<>();
+        Iterable<Penilaian> penilaians = keteranganService.findAll();
+
+            responseData.setStatus(200);
+            responseData.setMessages("success");
+            responseData.setPayload(penilaians);
+
+        return ResponseEntity.ok().body(responseData);
     }
 
     @GetMapping("/list/id/{id}")
