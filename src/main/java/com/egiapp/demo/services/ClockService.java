@@ -22,9 +22,9 @@ public class ClockService {
     StatusRepository statusRepository;
 
     public Clock create(Clock clock, Boolean bool) {
-        Status status = statusRepository.findByUserId(clock.getUser_id().getId());
-        status.setUserStatus(bool);
-        statusRepository.save(status);
+//        Status status = statusRepository.findByUserId(clock.getUser_id().getId());
+//        status.setUserStatus(bool);
+//        statusRepository.save(status);
         return clockRepo.save(clock);
     }
 

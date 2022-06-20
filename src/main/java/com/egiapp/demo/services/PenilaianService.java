@@ -1,7 +1,7 @@
 package com.egiapp.demo.services;
 
 
-import com.egiapp.demo.model.entity.Keterangan;
+import com.egiapp.demo.model.entity.Penilaian;
 import com.egiapp.demo.model.repos.KeteranganRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -11,20 +11,25 @@ import java.util.List;
 
 @Service
 @Transactional
-public class KeteranganService {
+public class PenilaianService {
 
     @Autowired
     private KeteranganRepo keteranganRepo;
+//
+//    @Autowired
+//    private UserRepository userRepository;
 
-    public Keterangan create(Keterangan keterangan){
-        return keteranganRepo.save(keterangan);
+
+    public Penilaian create(Penilaian penilaian){
+
+        return keteranganRepo.save(penilaian);
     }
 
-    public Iterable<Keterangan> findAll(){
+    public Iterable<Penilaian> findAll(){
         return keteranganRepo.findAll();
     }
 
-    public Keterangan findByid(Long id){
+    public Penilaian findByid(Long id){
         return keteranganRepo.findById(id).get();
     }
 
@@ -32,11 +37,11 @@ public class KeteranganService {
         keteranganRepo.deleteById(id);
     }
 
-    public List<Keterangan> findKesByIdDesc(Long id){
+    public List<Penilaian> findKesByIdDesc(Long id){
         return keteranganRepo.findKesByIdDesc(id);
     }
 
-    public List<Keterangan>findKesByTeam(String team){
+    public List<Penilaian>findKesByTeam(String team){
         return keteranganRepo.findKesByTeam(team);
     }
 

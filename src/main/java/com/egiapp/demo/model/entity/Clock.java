@@ -23,21 +23,6 @@ class Clock implements Serializable {
 
     private Boolean working = false;
 
-    @Column(length = 150)
-    private String location_clock;
-
-    @Column(length = 100)
-    private String coordinate;
-
-    @Column(length = 300)
-    private String url_foto_clock;
-
-    @Column(length = 10)
-    private Long level_kesehatan_fisik_id;
-
-    @Column(length = 10)
-    private Long level_kesehatan_mental_Id;
-
     @ManyToOne
     private User user_id;
 

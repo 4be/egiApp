@@ -37,21 +37,13 @@ public class ClockController {
     private static String UPLOADED_PATH = "/home/adiabdurrakh/opt/sinarmas/demo/public/img/";
 
     @PostMapping("/clockin")
-    public ResponseEntity<ResponseData<Clock>> clockin(@Valid @RequestParam("picture") MultipartFile picture, @ModelAttribute ClockinData clockinData, Errors errors) {
+    public ResponseEntity<ResponseData<Clock>> clockin(@Valid @RequestBody @ModelAttribute ClockinData clockinData, Errors errors) {
 
         ResponseData<Clock> responseData = new ResponseData<>();
         Clock clockinr = new Clock();
         Date date = new Date();
 
-        try {
-            byte[] bytes = picture.getBytes();
-            Path path = Paths.get((UPLOADED_PATH) + date.getTime() + picture.getOriginalFilename().replaceAll(" ", "_"));
-            Files.write(path, bytes);
-            String urlImage = "35.209.242.226/img/" + date.getTime() + picture.getOriginalFilename().replaceAll(" ", "_");
-            clockinr.setUrl_foto_clock(urlImage);
-        } catch (IOException ex) {
-            ex.printStackTrace();
-        }
+
 
         if (errors.hasErrors()) {
             for (ObjectError error : errors.getAllErrors()) {
@@ -62,11 +54,7 @@ public class ClockController {
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(responseData);
         }
         clockinr.setTimes(java.time.LocalDateTime.now());
-        clockinr.setLocation_clock(clockinData.getLocation_clock());
-        clockinr.setCoordinate(clockinData.getCoordinate());
         clockinr.setWorking(true);
-        clockinr.setLevel_kesehatan_fisik_id(clockinData.getLevel_kesehatan_fisik_id());
-        clockinr.setLevel_kesehatan_mental_Id(clockinData.getLevel_kesehatan_mental_Id());
         clockinr.setUser_id(clockinData.getUser_id());
 
         responseData.setStatus(true);
@@ -82,15 +70,7 @@ public class ClockController {
         Clock clockinr = new Clock();
         Date date = new Date();
 
-        try {
-            byte[] bytes = picture.getBytes();
-            Path path = Paths.get((UPLOADED_PATH) + date.getTime() + picture.getOriginalFilename());
-            Files.write(path, bytes);
-            String urlImage = "35.209.242.226/img/" + date.getTime() + picture.getOriginalFilename();
-            clockinr.setUrl_foto_clock(urlImage);
-        } catch (IOException ex) {
-            ex.printStackTrace();
-        }
+
 
         if (errors.hasErrors()) {
             for (ObjectError error : errors.getAllErrors()) {
@@ -101,11 +81,7 @@ public class ClockController {
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(responseData);
         }
         clockinr.setTimes(java.time.LocalDateTime.now());
-        clockinr.setLocation_clock(clockoutData.getLocation_clock());
-        clockinr.setCoordinate(clockoutData.getCoordinate());
         clockinr.setWorking(false);
-        clockinr.setLevel_kesehatan_fisik_id(clockoutData.getLevel_kesehatan_fisik_id());
-        clockinr.setLevel_kesehatan_mental_Id(clockoutData.getLevel_kesehatan_mental_Id());
         clockinr.setUser_id(clockoutData.getUser_id());
 
         responseData.setStatus(true);
