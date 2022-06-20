@@ -10,17 +10,17 @@ $(document).ready(function () {
             text: "<i class=\"fas fa-download\"></i> Export CSV",
             extend: 'csv',
             exportOptions: {
-                columns: [1, 2, 3, 4, 5, 6, 7]
+                columns: [1, 2, 3, 4, 5, 6, 7,8,9,10,11,12,13,14,15,16]
             }
         }, {
             text: "<i class=\"fas fa-download\"></i> Export Excel",
             extend: 'excel',
             exportOptions: {
-                columns: [1, 2, 3, 4, 5, 6, 7]
+                columns: [1, 2, 3, 4, 5, 6, 7,8,9,10,11,12,13,14,15,16]
             },
             title: function () {
                 let date = new Date().toLocaleDateString();
-                return 'SIKASEP - Rekap Data User (dibuat pada ' + formatDate(date,false,'mdy') + ')';
+                return 'SIKEO - Rekap Data Penilaian (dibuat pada ' + formatDate(date,false,'mdy') + ')';
             },
             messageTop: function () {
                 return ' ';
@@ -31,7 +31,7 @@ $(document).ready(function () {
             ['10 rows', '25 rows', '50 rows', 'Show all']
         ],
         ajax: {
-            url: "/api/user/",
+            url: "/api/penilaian/list/",
             type: "GET",
             data: "data",
             headers: {Authorization: localStorage.getItem("token")},
@@ -52,26 +52,34 @@ $(document).ready(function () {
         order: [[1, 'asc']],
         columns: [
             {data: null},
-            {data: "nik", class: "tbl-center"},
-            {data: "nama", class: "tbl-center"},
-            {data: "email", class: "tbl-center"},
-            {data: "tanggal_lahir", class: "tbl-center"},
-            {data: "alamat", class: "tbl-center"},
-            {data: "divisi", class: "tbl-center"},
-            {data: "nik_manager", class: "tbl-center"},
-            {data: "role", class: "tbl-center"},
-            {
-                data: "nik",
-                render: function (data) {
-                    return '<a href="/hcms/update/' + data + '"><button id="' + data + '" class="btn btn-info"><span class="fas fa-edit"></span> Ubah</button></a>'
-                }
-            },
-            {
-                data: "nik",
-                render: function (data) {
-                    return '<button id="' + data + '" onclick="deleteUser(this)" class="btn btn-danger"><span class="fas fa-trash"></span> Hapus</button>'
-                }
-            }
+            {data: "nikpenilai", class: "tbl-center"},
+            {data: "niktujuan", class: "tbl-center"},
+            {data: "leadership", class: "tbl-center"},
+            {data: "motivasi", class: "tbl-center"},
+            {data: "benchmarking", class: "tbl-center"},
+            {data: "managementStrategi", class: "tbl-center"},
+            {data: "bpjsInHealth", class: "tbl-center"},
+            {data: "pff", class: "tbl-center"},
+            {data: "pfsf", class: "tbl-center"},
+            {data: "aiso9001", class: "tbl-center"},
+            {data: "aiso140001", class: "tbl-center"},
+            {data: "aohsas180001", class: "tbl-center"},
+            {data: "bst", class: "tbl-center"},
+            {data: "appe", class: "tbl-center"},
+            {data: "aiso220000", class: "tbl-center"},
+            {data: "star5", class: "tbl-center"}
+            // {
+            //     data: "nik",
+            //     render: function (data) {
+            //         return '<a href="/hcms/update/' + data + '"><button id="' + data + '" class="btn btn-info"><span class="fas fa-edit"></span> Ubah</button></a>'
+            //     }
+            // },
+            // {
+            //     data: "nik",
+            //     render: function (data) {
+            //         return '<button id="' + data + '" onclick="deleteUser(this)" class="btn btn-danger"><span class="fas fa-trash"></span> Hapus</button>'
+            //     }
+            // }
         ],
     });
     table.on('draw.dt', function () {
@@ -87,7 +95,7 @@ function deleteUser(obj) {
     var confir = confirm("Apakah anda yakin akan menghapus data user ?");
     if (confir == true) {
         $.ajax({
-            url: "/api/user/nik/" + nik,
+            url: "/api/penilaian/list" + nik,
             type: "DELETE",
             headers: {Authorization: localStorage.getItem("token")},
             success: function (result) {

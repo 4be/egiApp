@@ -9,7 +9,7 @@ import java.util.List;
 public class ResponseData<T> {
     private int status;
     private String messages;
-    private T payload;
+    private T data;
 
     public int isStatus() {
         return status;
@@ -27,11 +27,11 @@ public class ResponseData<T> {
         this.messages = messages;
     }
 
-    public T getPayload() {
-        return payload;
+    public T getData() {
+        return data;
     }
 
-    public void setPayload(T payload) {
-        this.payload = payload;
+    public void setData(T data) {
+        this.data = data;
     }
 }

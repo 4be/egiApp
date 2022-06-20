@@ -17,6 +17,5 @@ public class TeamResponse {
     private String nik_manager;
     private Boolean isaktif;
     private String role;
-    private Boolean status;
 
 }

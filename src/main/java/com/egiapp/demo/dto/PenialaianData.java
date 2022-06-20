@@ -11,7 +11,7 @@ import javax.persistence.Column;
 
 @Getter
 @Setter
-public class KeteranganData {
+public class PenialaianData {
 
     private String leadership;
 

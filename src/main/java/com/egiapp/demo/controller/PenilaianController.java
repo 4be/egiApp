@@ -2,8 +2,12 @@ package com.egiapp.demo.controller;
 
 
 import com.egiapp.demo.model.entity.Penilaian;
+import com.egiapp.demo.model.entity.User;
+import com.egiapp.demo.model.response.payload.PenilaianResponse;
+import com.egiapp.demo.model.response.payload.UserResponse;
+import com.egiapp.demo.services.PenilaianInService;
 import com.egiapp.demo.services.PenilaianService;
-import com.egiapp.demo.dto.KeteranganData;
+import com.egiapp.demo.dto.PenialaianData;
 import com.egiapp.demo.dto.ResponseData;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -13,6 +17,7 @@ import org.springframework.validation.ObjectError;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -20,14 +25,20 @@ import java.util.List;
 @RequestMapping("api/penilaian/")
 public class PenilaianController {
 
+
     @Autowired
     private PenilaianService keteranganService;
 
-    @PostMapping("/add")
-    public ResponseEntity<ResponseData<Penilaian>> addket(@Valid @ModelAttribute @RequestBody KeteranganData keteranganData, Errors errors) {
 
-        ResponseData<Penilaian> responseData = new ResponseData<>();
+    @Autowired
+    private PenilaianInService penilaianInService;
+
+    @PostMapping("/add")
+    public ResponseEntity<ResponseData<PenilaianResponse>> addket(@Valid @ModelAttribute @RequestBody PenialaianData keteranganData, Errors errors) {
+
+        ResponseData<PenilaianResponse> responseData = new ResponseData<>();
         Penilaian penilaian = new Penilaian();
+        PenilaianResponse penilaianResponse = new PenilaianResponse();
         Date date = new Date();
 
 
@@ -36,7 +47,7 @@ public class PenilaianController {
                 responseData.setMessages(error.getDefaultMessage());
             }
             responseData.setStatus(200);
-            responseData.setPayload(null);
+            responseData.setData(null);
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(responseData);
         }
 
@@ -57,25 +68,35 @@ public class PenilaianController {
         penilaian.setNiktujuan(keteranganData.getNiktujuan());
         penilaian.setUser_id(keteranganData.getUser_id());
 
+        keteranganService.create(penilaian);
+        penilaianResponse.setLeadership(keteranganData.getLeadership());
+        penilaianResponse.setMotivasi(keteranganData.getMotivasi());
+        penilaianResponse.setBenchmarking(keteranganData.getBenchmarking());
+        penilaianResponse.setManagementStrategi(keteranganData.getManagementStrategi());
+        penilaianResponse.setPFF(keteranganData.getPFF());
+        penilaianResponse.setPFSF(keteranganData.getPFSF());
+        penilaianResponse.setAISO9001(keteranganData.getAISO9001());
+        penilaianResponse.setAISO140001(keteranganData.getAISO140001());
+        penilaianResponse.setAOHSAS180001(keteranganData.getAOHSAS180001());
+        penilaianResponse.setAPPE(keteranganData.getAPPE());
+        penilaianResponse.setBpjsInHealth(keteranganData.getBpjsInHealth());
+        penilaianResponse.setAISO220000(keteranganData.getAISO220000());
+        penilaianResponse.setBST(keteranganData.getBST());
+        penilaianResponse.setSTAR5(keteranganData.getSTAR5());
+        penilaianResponse.setNiktujuan(keteranganData.getNiktujuan());
+
         responseData.setStatus(200);
         responseData.setMessages("success");
-        responseData.setPayload(keteranganService.create(penilaian));
-        return ResponseEntity.status(HttpStatus.CREATED).body(responseData);
-    }
-
-    @GetMapping("/list")
-    public ResponseEntity<ResponseData<Iterable<Penilaian>>> findAll() {
-
-
-        ResponseData<Iterable<Penilaian>> responseData = new ResponseData<>();
-        Iterable<Penilaian> penilaians = keteranganService.findAll();
-
-            responseData.setStatus(200);
-            responseData.setMessages("success");
-            responseData.setPayload(penilaians);
-
+        responseData.setData(penilaianResponse);
         return ResponseEntity.ok().body(responseData);
     }
+
+    @GetMapping("/list/")
+    public ResponseEntity<Object> getAllPenilaian() {
+        Object data = penilaianInService.getAllPenilaian();
+        return ResponseEntity.ok(data);
+    }
+
 
     @GetMapping("/list/id/{id}")
     public Penilaian findOne(@PathVariable("id") Long id) {
@@ -87,19 +108,5 @@ public class PenilaianController {
         keteranganService.removeOne(id);
     }
 
-    @GetMapping("/list/desc/{id}")
-    public List<Penilaian> getKetDesc(@PathVariable("id") Long id){
-        return keteranganService.findKesByIdDesc(id);
-    }
-
-    @GetMapping("/team/{team}")
-    public List<Penilaian> getKetTeam(@PathVariable("team")String team){
-        return keteranganService.findKesByTeam(team);
-    }
-
-    @GetMapping("/total/month/{month}")
-    public List<String> getTotalKesMonth(@PathVariable("month")Long month){
-        return keteranganService.findTotalKesMonth(month);
-    }
 
 }

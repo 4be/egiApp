@@ -1,6 +1,5 @@
 package com.egiapp.demo.repository;
 
-import com.egiapp.demo.model.entity.Clock;
 import com.egiapp.demo.model.entity.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;

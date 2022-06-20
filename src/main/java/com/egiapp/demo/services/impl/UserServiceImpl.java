@@ -3,7 +3,6 @@ package com.egiapp.demo.services.impl;
 import com.egiapp.demo.model.entity.ERole;
 import com.egiapp.demo.model.entity.Role;
 import com.egiapp.demo.model.entity.Status;
-import com.egiapp.demo.model.repos.ClockRepo;
 import com.egiapp.demo.model.request.UserRequest;
 import com.egiapp.demo.model.response.FailedResponse;
 import com.egiapp.demo.model.response.SuccessResponse;
@@ -42,8 +41,6 @@ public class UserServiceImpl implements UserService {
     @Autowired
     UserRepository userRepository;
 
-    @Autowired
-    ClockRepo clockRepo;
 
     @Autowired
     StatusRepository statusRepository;
@@ -181,7 +178,7 @@ public class UserServiceImpl implements UserService {
             List<TeamResponse> teamResponseList = new ArrayList<>();
 
             for (User user : userList) {
-                Boolean working = clockRepo.findStatusByIdDesc(user.getId());
+//                Boolean working = clockRepo.findStatusByIdDesc(user.getId());
                 TeamResponse teamResponse = new TeamResponse(
                     user.getId(),
                     user.getNama(),
@@ -192,8 +189,7 @@ public class UserServiceImpl implements UserService {
                     user.getDivisi(),
                     user.getNikManager(),
                     user.getIsaktif(),
-                    user.getRoles().iterator().next().getRolename().toString(),
-                    working
+                    user.getRoles().iterator().next().getRolename().toString()
                 );
                 teamResponseList.add(teamResponse);
             }
