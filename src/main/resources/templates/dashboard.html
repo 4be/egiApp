@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="eng"
-      xmlns:th="http://www.thymeleaf.org"
+      layout:decorate="~{fragments/main_layout}"
       xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
-      layout:decorate="~{fragments/main_layout}">
+      xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="utf-8">
     <title th:text="${title}"></title>
@@ -34,37 +34,41 @@
             </div>
         </div>
         <!-- Pending Requests Card Example -->
-<!--        <div class="col-xl-4 col-md-4 mb-4">-->
-<!--            <div class="card border-left-danger shadow h-100 py-2">-->
-<!--                <div class="card-body">-->
-<!--                    <div class="row no-gutters align-items-center">-->
-<!--                        <div class="col mr-2">-->
-<!--                            <div class="text-xs font-weight-bold text-info text-uppercase mb-1">Clock Out-->
-<!--                            </div>-->
-<!--                            <div class="h5 mb-0 font-weight-bold text-gray-800"><span id="clockOutCount"></span> / <span class="userCount"></span></div>-->
-<!--                        </div>-->
-<!--                        <div class="col-auto">-->
-<!--                            <i class="fas fa-user-clock fa-2x text-gray-300"></i>-->
-<!--                        </div>-->
-<!--                    </div>-->
-<!--                </div>-->
-<!--            </div>-->
-<!--        </div>-->
+        <!--        <div class="col-xl-4 col-md-4 mb-4">-->
+        <!--            <div class="card border-left-danger shadow h-100 py-2">-->
+        <!--                <div class="card-body">-->
+        <!--                    <div class="row no-gutters align-items-center">-->
+        <!--                        <div class="col mr-2">-->
+        <!--                            <div class="text-xs font-weight-bold text-info text-uppercase mb-1">Clock Out-->
+        <!--                            </div>-->
+        <!--                            <div class="h5 mb-0 font-weight-bold text-gray-800"><span id="clockOutCount"></span> / <span class="userCount"></span></div>-->
+        <!--                        </div>-->
+        <!--                        <div class="col-auto">-->
+        <!--                            <i class="fas fa-user-clock fa-2x text-gray-300"></i>-->
+        <!--                        </div>-->
+        <!--                    </div>-->
+        <!--                </div>-->
+        <!--            </div>-->
+        <!--        </div>-->
     </div>
     <div class="row">
         <div class="col-lg-6">
             <div class="card shadow mb-4">
                 <!-- Card Header - Dropdown -->
                 <div class="card-header py-3">
-                    <h6 class="m-0 font-weight-bold text-primary"><i class="fas fa-chart-pie"></i> Terakhir Melakukan Penilaian
+                    <h6 class="m-0 font-weight-bold text-primary">
+                        <i class="fas fa-chart-pie"></i>
+                        Terakhir Melakukan Penilaian
                     </h6>
+
                 </div>
                 <!-- Card Body -->
-<!--                <div class="card-body">-->
-<!--                    <div class="chart-pie">-->
-<!--                        <canvas id="clockThisYear"></canvas>-->
-<!--                    </div>-->
-<!--                </div>-->
+                <!--                <div class="card-body">-->
+                <!--                    <div class="chart-pie">-->
+                <!--                        <canvas id="clockThisYear"></canvas>-->
+                <!--                    </div>-->
+                <!--                </div>-->
+
             </div>
         </div>
 
@@ -75,73 +79,74 @@
                     <h6 class="m-0 font-weight-bold text-primary"><i class="fas fa-chart-pie"></i> Data Penilaian
                         Tahun Ini</h6>
                 </div>
-                <!-- Card Body -->
-<!--                <div class="card-body">-->
-<!--                    <div class="chart-pie">-->
-<!--                        <canvas id="keteranganThisYear"></canvas>-->
-<!--                    </div>-->
-<!--                </div>-->
+
+                <span class="nik"></span>
+                <div class="card-body">
+                    <div class="chart-pie">
+
+                    </div>
+                </div>
             </div>
         </div>
 
-<!--        <div class="col-lg-12">-->
-<!--            <div class="card shadow mb-4">-->
-<!--                &lt;!&ndash; Card Header - Dropdown &ndash;&gt;-->
-<!--                <div class="card-header py-3">-->
-<!--                    <h6 class="m-0 font-weight-bold text-primary"><i class="fas fa-chart-pie"></i> Data Clock</h6>-->
-<!--                </div>-->
-<!--                &lt;!&ndash; Card Body &ndash;&gt;-->
-<!--                <div class="card-body">-->
-<!--                    <div class="row">-->
-<!--                        <div class="col-lg-12">-->
-<!--                            <h6 class="text-center">Hari Ini (<span id="todayDate" class="text-primary"></span>)</h6>-->
-<!--                            <div class="chart-pie">-->
-<!--                                <canvas id="clockToday"></canvas>-->
-<!--                            </div>-->
-<!--                        </div>-->
-<!--                        <div class="col-lg-12">-->
-<!--                            <hr />-->
-<!--                        </div>-->
-<!--                        <div class="col-lg-12">-->
-<!--                            <h6 class="text-center">Kemarin (<span id="yesterdayDate" class="text-primary"></span>)</h6>-->
-<!--                            <div class="chart-pie">-->
-<!--                                <canvas id="clockYesterday"></canvas>-->
-<!--                            </div>-->
-<!--                        </div>-->
-<!--                    </div>-->
-<!--                </div>-->
-<!--            </div>-->
-<!--        </div>-->
-<!--    </div>-->
-<div class="col-lg-12">-->
-<!--            <div class="card shadow mb-4">-->
-<!--                &lt;!&ndash; Card Header - Dropdown &ndash;&gt;-->
-<!--                <div class="card-header py-3">-->
-<!--                    <h6 class="m-0 font-weight-bold text-primary"><i class="fas fa-chart-pie"></i> Data Clock</h6>-->
-<!--                </div>-->
-<!--                &lt;!&ndash; Card Body &ndash;&gt;-->
-<!--                <div class="card-body">-->
-<!--                    <div class="row">-->
-<!--                        <div class="col-lg-12">-->
-<!--                            <h6 class="text-center">Hari Ini (<span id="todayDate" class="text-primary"></span>)</h6>-->
-<!--                            <div class="chart-pie">-->
-<!--                                <canvas id="clockToday"></canvas>-->
-<!--                            </div>-->
-<!--                        </div>-->
-<!--                        <div class="col-lg-12">-->
-<!--                            <hr />-->
-<!--                        </div>-->
-<!--                        <div class="col-lg-12">-->
-<!--                            <h6 class="text-center">Kemarin (<span id="yesterdayDate" class="text-primary"></span>)</h6>-->
-<!--                            <div class="chart-pie">-->
-<!--                                <canvas id="clockYesterday"></canvas>-->
-<!--                            </div>-->
-<!--                        </div>-->
-<!--                    </div>-->
-<!--                </div>-->
-<!--            </div>-->
-<!--        </div>-->
-<!--    </div>-->
+        <!--        <div class="col-lg-12">-->
+        <!--            <div class="card shadow mb-4">-->
+        <!--                &lt;!&ndash; Card Header - Dropdown &ndash;&gt;-->
+        <!--                <div class="card-header py-3">-->
+        <!--                    <h6 class="m-0 font-weight-bold text-primary"><i class="fas fa-chart-pie"></i> Data Clock</h6>-->
+        <!--                </div>-->
+        <!--                &lt;!&ndash; Card Body &ndash;&gt;-->
+        <!--                <div class="card-body">-->
+        <!--                    <div class="row">-->
+        <!--                        <div class="col-lg-12">-->
+        <!--                            <h6 class="text-center">Hari Ini (<span id="todayDate" class="text-primary"></span>)</h6>-->
+        <!--                            <div class="chart-pie">-->
+        <!--                                <canvas id="clockToday"></canvas>-->
+        <!--                            </div>-->
+        <!--                        </div>-->
+        <!--                        <div class="col-lg-12">-->
+        <!--                            <hr />-->
+        <!--                        </div>-->
+        <!--                        <div class="col-lg-12">-->
+        <!--                            <h6 class="text-center">Kemarin (<span id="yesterdayDate" class="text-primary"></span>)</h6>-->
+        <!--                            <div class="chart-pie">-->
+        <!--                                <canvas id="clockYesterday"></canvas>-->
+        <!--                            </div>-->
+        <!--                        </div>-->
+        <!--                    </div>-->
+        <!--                </div>-->
+        <!--            </div>-->
+        <!--        </div>-->
+        <!--    </div>-->
+        <div class="col-lg-12">-->
+            <!--            <div class="card shadow mb-4">-->
+            <!--                &lt;!&ndash; Card Header - Dropdown &ndash;&gt;-->
+            <!--                <div class="card-header py-3">-->
+            <!--                    <h6 class="m-0 font-weight-bold text-primary"><i class="fas fa-chart-pie"></i> Data Clock</h6>-->
+            <!--                </div>-->
+            <!--                &lt;!&ndash; Card Body &ndash;&gt;-->
+            <!--                <div class="card-body">-->
+            <!--                    <div class="row">-->
+            <!--                        <div class="col-lg-12">-->
+            <!--                            <h6 class="text-center">Hari Ini (<span id="todayDate" class="text-primary"></span>)</h6>-->
+            <!--                            <div class="chart-pie">-->
+            <!--                                <canvas id="clockToday"></canvas>-->
+            <!--                            </div>-->
+            <!--                        </div>-->
+            <!--                        <div class="col-lg-12">-->
+            <!--                            <hr />-->
+            <!--                        </div>-->
+            <!--                        <div class="col-lg-12">-->
+            <!--                            <h6 class="text-center">Kemarin (<span id="yesterdayDate" class="text-primary"></span>)</h6>-->
+            <!--                            <div class="chart-pie">-->
+            <!--                                <canvas id="clockYesterday"></canvas>-->
+            <!--                            </div>-->
+            <!--                        </div>-->
+            <!--                    </div>-->
+            <!--                </div>-->
+            <!--            </div>-->
+            <!--        </div>-->
+            <!--    </div>-->
 
 
 </th:block>

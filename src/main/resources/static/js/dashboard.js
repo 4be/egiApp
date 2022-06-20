@@ -3,8 +3,8 @@ function handleDate() {
     let today = new Date();
     let yesterday = new Date();
     yesterday.setDate(today.getDate() - 1);
-    let todayDate = formatDate(today.toLocaleDateString(),false,'mdy');
-    let yesterdayDate = formatDate(yesterday.toLocaleDateString(),false,'mdy');
+    let todayDate = formatDate(today.toLocaleDateString(), false, 'mdy');
+    let yesterdayDate = formatDate(yesterday.toLocaleDateString(), false, 'mdy');
     $('#todayDate').html(todayDate);
     $('#yesterdayDate').html(yesterdayDate);
 }
@@ -28,6 +28,42 @@ $.ajax({
         }
     }
 });
+
+$.ajax({
+    url: "/api/penilaian/list/",
+    type: "GET",
+    headers: {Authorization: localStorage.getItem("token")},
+    data: "data",
+    success: function (result) {
+        $('.nik').html(result.data);
+        console.log(result.data)
+        // let babi = JSON.parse(result.data);
+
+        let json = result.data;
+        let html = "";
+        json.forEach((nilai) => {
+            html += "<div class='nilai'>"
+            let keys = Object.keys(nilai);
+            keys.forEach((isi) => {
+                // $('.nik').html(isi);
+                html += "<strong>"
+                html += isi
+                html += "</strong>"
+                console.log(isi);
+            })
+        })
+
+    },
+    error: function (result) {
+        if (result.status == 401) {
+            alert(result.responseJSON.message);
+            localStorage.removeItem("token");
+            location.href = "/";
+        }
+    }
+})
+;
+
 // clock in count
 $.ajax({
     url: "/api/status/result/1",
