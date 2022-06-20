@@ -254,16 +254,20 @@ public class UserServiceImpl implements UserService {
     public Set<Role> getRole(String role) {
         Set<Role> roles = new HashSet<>();
         switch (role) {
-            case "HCM":
-                Role adminRole = roleRepository.findByRolename(ERole.HCM);
+            case "PENINJAU":
+                Role adminRole = roleRepository.findByRolename(ERole.PENINJAU);
                 roles.add(adminRole);
                 break;
-            case "ASSMANAGER":
-                Role modRole = roleRepository.findByRolename(ERole.ASSMANAGER);
-                roles.add(modRole);
+            case "GL":
+                Role GLRole = roleRepository.findByRolename(ERole.GL);
+                roles.add(GLRole);
+                break;
+            case "SPV":
+                Role SPVRole = roleRepository.findByRolename(ERole.SPV);
+                roles.add(SPVRole);
                 break;
             default:
-                Role defRole = roleRepository.findByRolename(ERole.STAFF);
+                Role defRole = roleRepository.findByRolename(ERole.PEGAWAI);
                 roles.add(defRole);
         }
         return roles;

@@ -24,7 +24,7 @@ $("#login").click(function () {
             }
 
             if (result.status == 200) {
-                if (result.data.role == 'HCM') {
+                if (result.data.role == 'PENINJAU' || "GL" || "SPV" || "PEGAWAI") {
                     localStorage.setItem("token", result.data.token);
                     location.href = "/hcms/";
                 } else {
