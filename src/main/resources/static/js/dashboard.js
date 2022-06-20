@@ -18,6 +18,7 @@ $.ajax({
     headers: {Authorization: localStorage.getItem("token")},
     success: function (result) {
         $('.userCount').html(result.data.length);
+        $('.userName').html(localStorage.getItem("nama"));
     },
     error: function (result) {
         if (result.status == 401) {

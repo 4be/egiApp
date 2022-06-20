@@ -26,6 +26,7 @@ $("#login").click(function () {
             if (result.status == 200) {
                 if (result.data.role == 'PENINJAU' || "GL" || "SPV" || "PEGAWAI") {
                     localStorage.setItem("token", result.data.token);
+                    localStorage.setItem("nama", result.data.nama);
                     location.href = "/hcms/";
                 } else {
                     $("#sigagal2").show();

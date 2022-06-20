@@ -80,3 +80,21 @@ $(document).ready(function () {
         $('#imageClock').attr('src', '/img/loading.gif');
     })
 });
+
+
+$.ajax({
+    url: "/api/user/",
+    type: "GET",
+    headers: {Authorization: localStorage.getItem("token")},
+    success: function (result) {
+        $('.userCount').html(result.data.length);
+        $('.userName').html(localStorage.getItem("nama"));
+    },
+    error: function (result) {
+        if (result.status == 401) {
+            alert(result.responseJSON.message);
+            localStorage.removeItem("token");
+            location.href = "/";
+        }
+    }
+});
