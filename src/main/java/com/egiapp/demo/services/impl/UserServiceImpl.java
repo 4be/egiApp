@@ -1,17 +1,17 @@
 package com.egiapp.demo.services.impl;
 
-import com.egiapp.demo.model.entity.ERole;
-import com.egiapp.demo.model.entity.Role;
-import com.egiapp.demo.model.entity.Status;
+import com.egiapp.demo.model.entity.*;
 import com.egiapp.demo.model.request.UserRequest;
 import com.egiapp.demo.model.response.FailedResponse;
 import com.egiapp.demo.model.response.SuccessResponse;
+import com.egiapp.demo.model.response.payload.PenilaianResponse;
 import com.egiapp.demo.model.response.payload.TeamResponse;
 import com.egiapp.demo.model.response.payload.UserResponse;
+import com.egiapp.demo.repository.PenilaianInRepository;
 import com.egiapp.demo.repository.RoleRepository;
 import com.egiapp.demo.repository.UserRepository;
+import com.egiapp.demo.services.PenilaianInService;
 import com.egiapp.demo.services.UserService;
-import com.egiapp.demo.model.entity.User;
 import com.egiapp.demo.repository.StatusRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -38,6 +38,8 @@ public class UserServiceImpl implements UserService {
     @Autowired
     UserRepository userRepository;
 
+    @Autowired
+    PenilaianInRepository penilaianInRepository;
 
     @Autowired
     StatusRepository statusRepository;
@@ -184,6 +186,7 @@ public class UserServiceImpl implements UserService {
             return new FailedResponse(HttpStatus.INTERNAL_SERVER_ERROR, e.getMessage());
         }
     }
+
 
     @Override
     public Object getUserByNikManager(String nikManager) {

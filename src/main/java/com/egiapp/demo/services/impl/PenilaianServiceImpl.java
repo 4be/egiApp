@@ -22,8 +22,6 @@ public class PenilaianServiceImpl implements PenilaianInService {
     PenilaianInRepository penilaianInRepository;
 
 
-
-
     @Override
     public Object getAllPenilaian() {
         try {
@@ -40,6 +38,42 @@ public class PenilaianServiceImpl implements PenilaianInService {
             return new FailedResponse(HttpStatus.MULTI_STATUS, e.getMessage());
         }
     }
+
+
+//    @Override
+//    public Object findNilaiByNik(String nik) {
+//        try {
+//            List<Penilaian> penilaianList = penilaianInRepository.findNilaiByNik(nik);
+//
+//            List<PenilaianResponse> penilaianResponseList = new ArrayList<>();
+//
+//            for (Penilaian penilaian : penilaianList) {
+//                PenilaianResponse penilaianResponse = new PenilaianResponse(
+//                    penilaian.getId(),
+//                    penilaian.getUser_id().getNik(),
+//                    penilaian.getLeadership(),
+//                    penilaian.getMotivasi(),
+//                    penilaian.getBenchmarking(),
+//                    penilaian.getManagementStrategi(),
+//                    penilaian.getPFF(),
+//                    penilaian.getAISO9001(),
+//                    penilaian.getAISO140001(),
+//                    penilaian.getAISO220000(),
+//                    penilaian.getAPPE(),
+//                    penilaian.getBpjsInHealth(),
+//                    penilaian.getBST(),
+//                    penilaian.getAOHSAS180001(),
+//                    penilaian.getPFSF(),
+//                    penilaian.getSTAR5(),
+//                    penilaian.getNiktujuan()
+//                );
+//                penilaianResponseList.add(penilaianResponse);
+//            }
+//            return new SuccessResponse(HttpStatus.OK, "Success", penilaianResponseList);
+//        } catch (Exception e) {
+//            return new FailedResponse(HttpStatus.INTERNAL_SERVER_ERROR, e.getMessage());
+//        }
+//    }
 
 
     public PenilaianResponse getUserResponse(Penilaian penilaian) {

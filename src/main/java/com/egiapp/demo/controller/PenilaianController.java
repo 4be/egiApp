@@ -96,6 +96,12 @@ public class PenilaianController {
         Object data = penilaianInService.getAllPenilaian();
         return ResponseEntity.ok(data);
     }
+//
+//    @GetMapping("/nik/{nik}")
+//    public ResponseEntity<Object> getPenilaianByNik(@PathVariable String nik) {
+//        Object data = penilaianInService.findNilaiByNik(nik);
+//        return ResponseEntity.ok(data);
+//    }
 
 
     @GetMapping("/list/id/{id}")
