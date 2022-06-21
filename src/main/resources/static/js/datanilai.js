@@ -52,31 +52,30 @@ $(document).ready(function () {
         ScrollX: true,
         order: [[1, 'asc']],
         columns: [
-            {data: null},
-            {data: "nikpenilai", class: "tbl-center"},
-            {data: "niktujuan", class: "tbl-center d-none"},
-            {data: "leadership", class: "tbl-center"},
-            {data: "motivasi", class: "tbl-center"},
-            {data: "benchmarking", class: "tbl-center"},
-            {data: "managementStrategi", class: "tbl-center"},
-            {data: "bpjsInHealth", class: "tbl-center"},
-            {data: "pff", class: "tbl-center"},
-            {data: "pfsf", class: "tbl-center"},
-            {data: "aiso9001", class: "tbl-center"},
-            {data: "aiso140001", class: "tbl-center"},
-            {data: "aohsas180001", class: "tbl-center"},
-            {data: "bst", class: "tbl-center"},
-            {data: "appe", class: "tbl-center"},
-            {data: "aiso220000", class: "tbl-center"},
-            {data: "star5", class: "tbl-center"}
+            {data: "id", class: "tbl-center "},
+            {data: "niktujuan", class: "tbl-center "},
+            {data: "pemecahanMasalah", class: "tbl-center "},
+            {data: "inisiatif", class: "tbl-center "},
+            {data: "loyalitas", class: "tbl-center "},
+            {data: "motivasi", class: "tbl-center "},
+            {data: "etikaKomunikasi", class: "tbl-center "},
+            {data: "displinKehadiran", class: "tbl-center "},
+            {data: "kerapihan", class: "tbl-center "},
+            {data: "tanggungJawab", class: "tbl-center "},
+            {data: "keterampilan", class: "tbl-center "},
+            {data: "kecepatanKerja", class: "tbl-center "},
+            {data: "user_id", class: "tbl-center d-none"},
+            {data: "mengetahuiPekerjaan", class: "tbl-center "},
+            {data: "kualitasPekerjaan", class: "tbl-center  "},
+            {data: "categoryname", class: "tbl-center "}
         ],
     });
-    table.on('draw.dt', function () {
-        var PageInfo = $('#dataUser').DataTable().page.info();
-        table.column(0, {page: 'current'}).nodes().each(function (cell, i) {
-            cell.innerHTML = i + 1 + PageInfo.start;
-        });
-    });
+    // table.on('draw.dt', function () {
+    //     var PageInfo = $('#dataUser').DataTable().page.info();
+    //     table.column(0, {page: 'current'}).nodes().each(function (cell, i) {
+    //         cell.innerHTML = i + 1 + PageInfo.start;
+    //     });
+    // });
 });
 
 function deleteUser(obj) {
