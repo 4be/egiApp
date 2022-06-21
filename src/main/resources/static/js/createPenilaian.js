@@ -9,20 +9,19 @@ $("#submit").click(function () {
     if (confir == true) {
         var form = new FormData();
         form.append("user_id", userid);
-        form.append("leadership", $("#leadership").val());
+        form.append("pemecahanMasalah", $("#pemecahanMasalah").val());
+        form.append("inisiatif", $("#inisiatif").val());
+        form.append("loyalitas", $("#loyalitas").val());
         form.append("motivasi", $("#motivasi").val());
-        form.append("benchmarking", $("#benchmarking").val());
-        form.append("managementStrategi", $("#managementStrategi").val());
-        form.append("PFF", $("#PFF").val());
-        form.append("PFSF", $("#PFSF").val());
-        form.append("AISO9001", $("#AISO9001").val());
-        form.append("AISO140001", $("#AISO140001").val());
-        form.append("AOHSAS180001", $("#AOHSAS180001").val());
-        form.append("APPE", $("#APPE").val());
-        form.append("bpjsInHealth", $("#bpjsInHealth").val());
-        form.append("AISO220000", $("#AISO220000").val());
-        form.append("BST", $("#BST").val());
-        form.append("STAR5", $("#STAR5").val());
+        form.append("etikaKomunikasi", $("#etikaKomunikasi").val());
+        form.append("displinKehadiran", $("#displinKehadiran").val());
+        form.append("kerapihan", $("#kerapihan").val());
+        form.append("tanggungJawab", $("#tanggungJawab").val());
+        form.append("kualitasPekerjaan", $("#kualitasPekerjaan").val());
+        form.append("keterampilan", $("#keterampilan").val());
+        form.append("kecepatanKerja", $("#kecepatanKerja").val());
+        form.append("mengetahuiPekerjaan", $("#mengetahuiPekerjaan").val());
+        form.append("categoryname", "default");
         form.append("niktujuan", $("#niktujuan").val());
 
         $.ajax({
