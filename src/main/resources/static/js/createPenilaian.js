@@ -4,96 +4,41 @@ $(document).ready(function () {
     $("#sigagal").hide();
 });
 
-$("#btnSubmit").click(function () {
-    var data = new FormData();
-    data.append("user_id", "" + $("#user_id").val() + "\"");
-    data.append("leadership", "" + $("#leadership").val() + "\"");
-    data.append("motivasi", "" + $("#motivasi").val() + "\"");
-    data.append("benchmarking", "" + $("#benchmarking").val() + "\"");
-    data.append("managementStrategi", "" + $("#managementStrategi").val() + "\"");
-    data.append("PFF", "" + $("#PFF").val() + "\"");
-    data.append("PFSF", "" + $("#PFSF").val() + "\"");
-    data.append("AISO9001", "" + $("#AISO9001").val() + "\"");
-    data.append("AISO140001", "" + $("#AISO140001").val() + "\"");
-    data.append("AOHSAS180001", "" + $("#AOHSAS180001").val() + "\"");
-    data.append("APPE", "" + $("#APPE").val() + "\"");
-    data.append("bpjsInHealth", "" + $("#bpjsInHealth").val() + "\"");
-    data.append("AISO220000", "" + $("#AISO220000").val() + "\"");
-    data.append("BST", "" + $("#BST").val() + "\"");
-    data.append("STAR5", "" + $("#STAR5").val() + "\"");
-    data.append("niktujuan", "" + $("#niktujuan").val() + "\"");
-
-    $.ajax({
-        url: '/api/penilaian/add',
-        type: 'POST',
-        data: data,
-        headers: {Authorization: localStorage.getItem("token")},
-        success: function (data) {
-            if (data.status == 200) {
-                $("#sisukses").show();
-                setTimeout(function () {
-                    location.href = "/";
-                }, 1000);
-            }
-        },
-        error: function (result) {
-            if (result.status == 401) {
-                alert(result.responseJSON.message);
-                localStorage.removeItem("token");
-                location.href = "/";
-            }
-        }
-    });
-});
-
-
 $("#submit").click(function () {
     var confir = confirm("Apakah anda yakin akan melakukan submit ?");
     if (confir == true) {
-        var user = "{" +
-            "\"user_id\" : \"" + $("#user_id").val() + "\"," +
-            "\"leadership\" : \"" + $("#leadership").val() + "\"," +
-            "\"motivasi\" : \"" + $("#motivasi").val() + "\"," +
-            "\"benchmarking\" : \"" + $("#benchmarking").val() + "\"," +
-            "\"managementStrategi\" : \"" + $("#managementStrategi").val() + "\"," +
-            "\"PFF\" : \"" + $("#PFF").val() + "\"," +
-            "\"PFSF\" : \"" + $("#PFSF").val() + "\"," +
-            "\"AISO9001\" : \"" + $("#AISO9001").val() + "\"," +
-            "\"AISO220000\": \"" + $("#AISO220000").val() + "\"," +
-            "\"BST\" : \"" + $("#BST").val() + "\"" +
-            "\"STAR5\" : \"" + $("#STAR5").val() + "\"" +
-            "\"niktujuan\" : \"" + $("#niktujuan").val() + "\"" +
-            "}";
-        // var data = new FormData();
-        // data.append("user_id", "" + $("#user_id").val() + "\"");
-        // data.append("leadership", "" + $("#leadership").val() + "\"");
-        // data.append("motivasi", "" + $("#motivasi").val() + "\"");
-        // data.append("benchmarking", "" + $("#benchmarking").val() + "\"");
-        // data.append("managementStrategi", "" + $("#managementStrategi").val() + "\"");
-        // data.append("PFF", "" + $("#PFF").val() + "\"");
-        // data.append("PFSF", "" + $("#PFSF").val() + "\"");
-        // data.append("AISO9001", "" + $("#AISO9001").val() + "\"");
-        // data.append("AISO140001", "" + $("#AISO140001").val() + "\"");
-        // data.append("AOHSAS180001", "" + $("#AOHSAS180001").val() + "\"");
-        // data.append("APPE", "" + $("#APPE").val() + "\"");
-        // data.append("bpjsInHealth", "" + $("#bpjsInHealth").val() + "\"");
-        // data.append("AISO220000", "" + $("#AISO220000").val() + "\"");
-        // data.append("BST", "" + $("#BST").val() + "\"");
-        // data.append("STAR5", "" + $("#STAR5").val() + "\"");
-        // data.append("niktujuan", "" + $("#niktujuan").val() + "\"");
-
+        var form = new FormData();
+        form.append("user_id", userid);
+        form.append("leadership", $("#leadership").val());
+        form.append("motivasi", $("#motivasi").val());
+        form.append("benchmarking", $("#benchmarking").val());
+        form.append("managementStrategi", $("#managementStrategi").val());
+        form.append("PFF", $("#PFF").val());
+        form.append("PFSF", $("#PFSF").val());
+        form.append("AISO9001", $("#AISO9001").val());
+        form.append("AISO140001", $("#AISO140001").val());
+        form.append("AOHSAS180001", $("#AOHSAS180001").val());
+        form.append("APPE", $("#APPE").val());
+        form.append("bpjsInHealth", $("#bpjsInHealth").val());
+        form.append("AISO220000", $("#AISO220000").val());
+        form.append("BST", $("#BST").val());
+        form.append("STAR5", $("#STAR5").val());
+        form.append("niktujuan", $("#niktujuan").val());
 
         $.ajax({
             url: '/api/penilaian/add/',
-            type: 'POST',
-            data: user,
-            enctype: 'multipart/form-data',
+            method: "POST",
+            timeout: 0,
             headers: {Authorization: localStorage.getItem("token")},
+            processData: false,
+            mimeType: "multipart/form-data",
+            contentType: false,
+            data: form,
             success: function (result) {
                 if (result.status == 200) {
                     $("#sisukses").show();
                     setTimeout(function () {
-                        location.href = "/hcms/user/penilaian";
+                        location.href = "/";
                     }, 1000);
                 } else {
                     $("#sigagal").show();
