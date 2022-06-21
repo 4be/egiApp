@@ -78,6 +78,7 @@ public class PenilaianServiceImpl implements PenilaianInService {
 
     public PenilaianResponse getUserResponse(Penilaian penilaian) {
         PenilaianResponse penilaianResponse = new PenilaianResponse(
+            penilaian.getId(),
             penilaian.getUser_id().getNik(),
             penilaian.getLeadership(),
             penilaian.getMotivasi(),

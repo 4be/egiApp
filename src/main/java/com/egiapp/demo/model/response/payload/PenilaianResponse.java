@@ -8,6 +8,8 @@ import lombok.Data;
 public class PenilaianResponse {
 
 
+    private Long id;
+    
     private String nikpenilai;
 
     private String leadership;

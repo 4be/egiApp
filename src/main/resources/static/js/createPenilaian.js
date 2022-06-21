@@ -5,8 +5,7 @@ $(document).ready(function () {
 });
 
 $("#btnSubmit").click(function () {
-    var form = $('#my-form')[0];
-    var data = new FormData(form);
+    var data = new FormData();
     data.append("user_id", "" + $("#user_id").val() + "\"");
     data.append("leadership", "" + $("#leadership").val() + "\"");
     data.append("motivasi", "" + $("#motivasi").val() + "\"");
@@ -24,16 +23,10 @@ $("#btnSubmit").click(function () {
     data.append("STAR5", "" + $("#STAR5").val() + "\"");
     data.append("niktujuan", "" + $("#niktujuan").val() + "\"");
 
-    $("#btnSubmit").prop("disabled", true);
-
     $.ajax({
-        type: "POST",
-        enctype: 'multipart/form-data',
-        url: "/api/penilaian/add",
+        url: '/api/penilaian/add',
+        type: 'POST',
         data: data,
-        cache: false,
-        contentType: false,
-        timeout: 800000,
         headers: {Authorization: localStorage.getItem("token")},
         success: function (data) {
             if (data.status == 200) {
