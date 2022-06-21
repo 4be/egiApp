@@ -16,6 +16,7 @@ $("#login").click(function () {
         dataType: 'json',
         contentType: 'application/json',
         success: function (result) {
+
             if (result.status != 200) {
                 $("#sigagal1").show();
                 setTimeout(function () {
@@ -28,12 +29,25 @@ $("#login").click(function () {
                     localStorage.setItem("token", result.data.token);
                     localStorage.setItem("nama", result.data.nama);
                     localStorage.setItem("role", result.data.role);
+                    localStorage.setItem("nikmanager", result.data.nikmanager);
                     location.href = "/hcms/";
                 } else if (result.data.role == 'GL' || 'SPV' || 'PEGAWAI') {
                     localStorage.setItem("token", result.data.token);
                     localStorage.setItem("nama", result.data.nama);
                     localStorage.setItem("role", result.data.role);
+                    localStorage.setItem("nikmanager", result.data.nikmanager);
                     location.href = "/hcms/user/";
+
+
+                    let json = result.data;
+                    json.forEach((nilai) => {
+                        let keys = Object.keys(nilai);
+                        keys.forEach((isi) => {
+                            console.log(isi);
+                        })
+                        console.log(nilai)
+                    })
+
                 } else {
                     $("#sigagal2").show();
                     setTimeout(function () {

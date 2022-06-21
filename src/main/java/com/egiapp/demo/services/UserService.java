@@ -12,6 +12,8 @@ public interface UserService {
     Object createUserByUpload(MultipartFile fileRequest);
 
     Object getUserById(Long id);
+    
+    Object getUserByNik(String nik);
 
     Object getUserByNikManager(String nikManager);
 

@@ -44,6 +44,12 @@ public class UserController {
         return ResponseEntity.ok(data);
     }
 
+    @GetMapping("/nik/{nik}")
+    public ResponseEntity<Object> getUsernik(@PathVariable String nik) {
+        Object data = userService.getUserByNik(nik);
+        return ResponseEntity.ok(data);
+    }
+
     @GetMapping("/manager/{nik}")
     public ResponseEntity<Object> getUserByNikManager(@PathVariable String nik) {
         Object data = userService.getUserByNikManager(nik);

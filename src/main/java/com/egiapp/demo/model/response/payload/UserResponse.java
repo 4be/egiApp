@@ -14,7 +14,7 @@ public class UserResponse {
     private String tanggal_lahir;
     private String email;
     private String divisi;
-    private String nik_manager;
+    private String nikmanager;
     private Boolean isaktif;
     private String role;
 

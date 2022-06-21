@@ -23,10 +23,7 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 
 import org.apache.commons.csv.CSVFormat;
 import org.apache.commons.csv.CSVParser;
@@ -166,6 +163,23 @@ public class UserServiceImpl implements UserService {
             User user = userRepository.findById(id).get();
             UserResponse userResponse = getUserResponse(user);
             return new SuccessResponse(HttpStatus.OK, "Success", userResponse);
+        } catch (Exception e) {
+            return new FailedResponse(HttpStatus.INTERNAL_SERVER_ERROR, e.getMessage());
+        }
+    }
+
+    @Override
+    public Object getUserByNik(String nik) {
+        try {
+            List<User> userList = Collections.singletonList(userRepository.findUserByNik(nik));
+
+            List<UserResponse> UserResponseList = new ArrayList<>();
+
+            for (User user : userList) {
+                UserResponse userResponse = getUserResponse(user);
+                UserResponseList.add(userResponse);
+            }
+            return new SuccessResponse(HttpStatus.OK, "Success", UserResponseList);
         } catch (Exception e) {
             return new FailedResponse(HttpStatus.INTERNAL_SERVER_ERROR, e.getMessage());
         }
