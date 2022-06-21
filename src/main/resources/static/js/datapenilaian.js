@@ -10,17 +10,17 @@ $(document).ready(function () {
             text: "<i class=\"fas fa-download\"></i> Export CSV",
             extend: 'csv',
             exportOptions: {
-                columns: [1, 2, 3, 4, 5, 6, 7,8,9,10,11,12,13,14,15,16]
+                columns: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16]
             }
         }, {
             text: "<i class=\"fas fa-download\"></i> Export Excel",
             extend: 'excel',
             exportOptions: {
-                columns: [1, 2, 3, 4, 5, 6, 7,8,9,10,11,12,13,14,15,16]
+                columns: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16]
             },
             title: function () {
                 let date = new Date().toLocaleDateString();
-                return 'SIKEO - Rekap Data Penilaian (dibuat pada ' + formatDate(date,false,'mdy') + ')';
+                return 'SIKEO - Rekap Data Penilaian (dibuat pada ' + formatDate(date, false, 'mdy') + ')';
             },
             messageTop: function () {
                 return ' ';
@@ -46,7 +46,7 @@ $(document).ready(function () {
         columnDefs: [{
             searchable: false,
             orderable: false,
-            targets: [0,9,10]
+            targets: [0, 9, 10]
         }],
         ScrollX: true,
         order: [[1, 'asc']],
@@ -68,18 +68,6 @@ $(document).ready(function () {
             {data: "appe", class: "tbl-center"},
             {data: "aiso220000", class: "tbl-center"},
             {data: "star5", class: "tbl-center"}
-            // {
-            //     data: "nik",
-            //     render: function (data) {
-            //         return '<a href="/hcms/update/' + data + '"><button id="' + data + '" class="btn btn-info"><span class="fas fa-edit"></span> Ubah</button></a>'
-            //     }
-            // },
-            // {
-            //     data: "nik",
-            //     render: function (data) {
-            //         return '<button id="' + data + '" onclick="deleteUser(this)" class="btn btn-danger"><span class="fas fa-trash"></span> Hapus</button>'
-            //     }
-            // }
         ],
     });
     table.on('draw.dt', function () {
