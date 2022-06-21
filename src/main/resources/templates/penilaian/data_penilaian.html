@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="eng"
+      layout:decorate="~{fragments/user_layout}"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <title th:text="${title}"></title>
+</head>
+<body>
+<th:block layout:fragment="content">
+    <!--     Page Heading -->
+    <!--    <h1 class="h3 mb-2 text-gray-800" th:text="${title}"></h1>-->
+    <!--    <br>-->
+    <div class="alert alert-success alert-dismissible fade show" id="sihapus" role="alert">
+        <strong>Sukses !</strong> User berhasil Dihapus.
+        <button aria-label="Close" class="close" data-dismiss="alert" type="button">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <div class="alert alert-success alert-dismissible fade show" id="siubah" role="alert">
+        <strong>Sukses !</strong> User berhasil Diubah.
+        <button aria-label="Close" class="close" data-dismiss="alert" type="button">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <br>
+    <!-- DataTales Example -->
+    <div class="card shadow mb-4">
+        <div class="card-header py-3">
+            <h6 class="m-0 font-weight-bold text-primary"><i class="fas fa-table"></i> Tabel Data Penilaian</h6>
+        </div>
+        <div class="card-body">
+            <div class="table-responsive">
+                <table cellspacing="0"
+                       class="table table-bordered table-striped hover row-border compact stripe order-column"
+                       id="dataUser" style="width:100%">
+                    <thead>
+                    <tr>
+                        <th>id</th>
+                        <th>Penilai</th>
+                        <th>Ternilai</th>
+                        <th>Leadership</th>
+                        <th>Motivasi</th>
+                        <th>Benchmarking</th>
+                        <th>ManagementStrategi</th>
+                        <th>BpjsInHealth</th>
+                        <th>Pff</th>
+                        <th>Pfsf</th>
+                        <th>Aiso9001</th>
+                        <th>Aiso140001</th>
+                        <th>Aohsas180001</th>
+                        <th>Bst</th>
+                        <th>Appe</th>
+                        <th>Aiso220000</th>
+                        <th>Star5</th>
+                    </tr>
+                    </thead>
+                </table>
+            </div>
+        </div>
+    </div>
+</th:block>
+<th:block layout:fragment="custom_script">
+    <script src="/js/datapenilaian.js"></script>
+    <script src="https://cdn.datatables.net/buttons/1.7.1/js/dataTables.buttons.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/1.7.1/js/buttons.html5.min.js"></script>
+</th:block>
+</body>
+</html>

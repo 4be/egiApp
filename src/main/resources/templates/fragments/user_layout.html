@@ -3,7 +3,7 @@
       xmlns="http://www.w3.org/1999/html"
       xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" xmlns:th="http://www.thymeleaf.org">
 <head>
-    <script src="/js/accessUser.js"></script>
+    <script src="/js/accessU ser.js"></script>
     <meta charset="utf-8">
     <meta content="IE=edge" http-equiv="X-UA-Compatible">
     <meta content="width=device-width, initial-scale=1, shrink-to-fit=no" name="viewport">
@@ -29,7 +29,7 @@
     <!-- Sidebar -->
     <ul class="navbar-nav sidebar sidebar-dark accordion" id="accordionSidebar">
         <!-- Sidebar - Brand -->
-        <a class="sidebar-brand d-flex align-items-center justify-content-center" th:href="@{/user}">
+        <a class="sidebar-brand d-flex align-items-center justify-content-center" th:href="@{/hcms/user/}">
             <div class="sidebar-brand-icon">
                 <i class="far fa-file-alt"></i>
             </div>
@@ -39,45 +39,30 @@
         <hr class="sidebar-divider my-0">
         <!-- Nav Item - Dashboard -->
         <li class="nav-item" th:classappend="${ #request.requestURI == '/user' ? 'active':''}">
-            <a class="nav-link" th:href="@{/user}">
+            <a class="nav-link" th:href="@{/hcms/user/}">
                 <i class="fas fa-fw fa-tachometer-alt"></i>
                 <span>Dashboard</span></a>
         </li>
         <!-- Divider -->
         <hr class="sidebar-divider">
         <!-- Heading -->
-        <div class="sidebar-heading">
-            ALAT
-        </div>
-        <!-- Nav Item - Pages Collapse Menu -->
-        <li class="nav-item"
-            th:classappend="${ #request.requestURI == '/hcms/datauser' || #request.requestURI == '/hcms/create' ? 'active':''}">
-            <a aria-controls="collapseTwo" aria-expanded="true" class="nav-link collapsed" data-target="#collapseTwo"
-               data-toggle="collapse" href="#">
-                <i class="fas fa-user-cog"></i>
-                <span>Kelola User</span>
-            </a>
-            <div aria-labelledby="headingTwo" class="collapse" data-parent="#accordionSidebar" id="collapseTwo">
-                <div class="bg-white py-2 collapse-inner rounded">
-                    <a class="collapse-item" th:href="@{/hcms/datauser}">
-                        <i class="fas fa-fw fa-user"></i>&nbsp;<span>Data User</span>
-                    </a>
-                    <a class="collapse-item" th:href="@{/hcms/create}">
-                        <i class="fas fa-fw fa-user-plus"></i>&nbsp;<span>Tambah User</span>
-                    </a>
-                </div>
-            </div>
-        </li>
-        <!-- Divider -->
-        <hr class="sidebar-divider">
         <!-- Heading -->
         <div class="sidebar-heading">
             FITUR
         </div>
-        <li class="nav-item" th:classappend="${ #request.requestURI == '/hcms/penilaian ' ? 'active':''}">
-            <a class="nav-link" th:href="@{/hcms/datapenilaian}">
+        <li class="nav-item" th:classappend="${ #request.requestURI == '/hcms/user/penilaian ' ? 'active':''}">
+            <a class="nav-link" th:href="@{/hcms/user/penilaian}">
+                <i class="fas fa-user-cog"></i>
+                <span>Penilaian</span></a>
+        </li>
+
+        <div class="sidebar-heading">
+            FITUR
+        </div>
+        <li class="nav-item" th:classappend="${ #request.requestURI == '/hcms/user/datanilai ' ? 'active':''}">
+            <a class="nav-link" th:href="@{/hcms/user/datanilai}">
                 <i class="fas fa-fw fa-user-clock"></i>
-                <span>Rekap Nilai</span></a>
+                <span>Data Nilai</span></a>
         </li>
         <!-- Nav Item - Tables -->
         <!--        <li class="nav-item" th:classappend="${ #request.requestURI == '/hcms/dataketerangan' ? 'active':''}">-->

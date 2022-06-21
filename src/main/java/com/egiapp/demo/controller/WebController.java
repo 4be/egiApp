@@ -29,7 +29,7 @@ public class WebController {
     @GetMapping("/hcms/datapenilaian")
     public String dataPenilaian(Model model) {
         model.addAttribute("title", "Data Penilaian");
-        return "penilaian/index";
+        return "rekap_nilai/index";
     }
 
 
@@ -66,4 +66,16 @@ public class WebController {
         return "dashboard_user";
     }
 
+
+    @GetMapping("/hcms/user/penilaian")
+    public String penilanan(Model model) {
+        model.addAttribute("title", "Dashboard");
+        return "penilaian/penilaian";
+    }
+
+    @GetMapping("/hcms/user/datanilai")
+    public String datanilai(Model model) {
+        model.addAttribute("title", "Dashboard");
+        return "penilaian/data_penilaian";
+    }
 }
