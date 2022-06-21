@@ -68,6 +68,12 @@
                 </div>
             </div>
         </li>
+
+        <li class="nav-item" th:classappend="${ #request.requestURI == '/hcms/penilaian ' ? 'active':''}">
+            <a class="nav-link" th:href="@{/hcms/penilaian}">
+                <i class="fas fa-fw fa-user-clock"></i>
+                <span>Penilaian</span></a>
+        </li>
         <!-- Divider -->
         <hr class="sidebar-divider">
         <!-- Heading -->
@@ -128,7 +134,8 @@
                 <ul class="navbar-nav ml-auto">
                     <!-- Nav Item - User Information -->
                     <li class="nav-item dropdown no-arrow">
-                        <a aria-expanded="false" aria-haspopup="true" class="nav-link dropdown-toggle" data-toggle="dropdown"
+                        <a aria-expanded="false" aria-haspopup="true" class="nav-link dropdown-toggle"
+                           data-toggle="dropdown"
                            href="#" id="userDropdown" role="button">
                             <span class="userName mr-2 d-none d-lg-inline text-gray-600 small"></span>
                             <img class="img-profile rounded-circle" height="60" src="/img/user-logo.png" width="60">
