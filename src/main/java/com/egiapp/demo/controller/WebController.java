@@ -39,11 +39,6 @@ public class WebController {
         return "dataClock/index";
     }
 
-    @GetMapping("/hcms/stories")
-    public String stories(Model model) {
-        model.addAttribute("title", "Data Stories");
-        return "stories/index";
-    }
 
     @GetMapping("/hcms/create")
     public String createUser(Model model) {
@@ -64,4 +59,11 @@ public class WebController {
         model.addAttribute("title", "Data User");
         return "user/data_user";
     }
+
+    @GetMapping("/hcms/user")
+    public String indexUser(Model model) {
+        model.addAttribute("title", "Dashboard");
+        return "dashboard_user";
+    }
+
 }

@@ -30,7 +30,7 @@ function formatDate(date, convertMode = false, dateFormat = 'ymd') {
                 year = date.split("/")[2];
                 result += day + " " + indoMonth[parseInt(month)] + " " + year;
             }
-        } else if(dateFormat == 'ymd') {
+        } else if (dateFormat == 'ymd') {
             year = date.split("-")[0];
             month = date.split("-")[1];
             day = date.split("-")[2];
@@ -89,6 +89,7 @@ $.ajax({
     success: function (result) {
         $('.userCount').html(result.data.length);
         $('.userName').html(localStorage.getItem("nama"));
+        // $('.userRole').html(localStorage.getItem("role"));
     },
     error: function (result) {
         if (result.status == 401) {
