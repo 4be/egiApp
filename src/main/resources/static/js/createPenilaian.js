@@ -64,15 +64,30 @@ $("#submit").click(function () {
             "\"STAR5\" : \"" + $("#STAR5").val() + "\"" +
             "\"niktujuan\" : \"" + $("#niktujuan").val() + "\"" +
             "}";
+        // var data = new FormData();
+        // data.append("user_id", "" + $("#user_id").val() + "\"");
+        // data.append("leadership", "" + $("#leadership").val() + "\"");
+        // data.append("motivasi", "" + $("#motivasi").val() + "\"");
+        // data.append("benchmarking", "" + $("#benchmarking").val() + "\"");
+        // data.append("managementStrategi", "" + $("#managementStrategi").val() + "\"");
+        // data.append("PFF", "" + $("#PFF").val() + "\"");
+        // data.append("PFSF", "" + $("#PFSF").val() + "\"");
+        // data.append("AISO9001", "" + $("#AISO9001").val() + "\"");
+        // data.append("AISO140001", "" + $("#AISO140001").val() + "\"");
+        // data.append("AOHSAS180001", "" + $("#AOHSAS180001").val() + "\"");
+        // data.append("APPE", "" + $("#APPE").val() + "\"");
+        // data.append("bpjsInHealth", "" + $("#bpjsInHealth").val() + "\"");
+        // data.append("AISO220000", "" + $("#AISO220000").val() + "\"");
+        // data.append("BST", "" + $("#BST").val() + "\"");
+        // data.append("STAR5", "" + $("#STAR5").val() + "\"");
+        // data.append("niktujuan", "" + $("#niktujuan").val() + "\"");
+
 
         $.ajax({
-            type: "POST",
-            enctype: 'multipart/form-data',
-            url: "/api/penilaian/add",
+            url: '/api/penilaian/add/',
+            type: 'POST',
             data: user,
-            cache: false,
-            contentType: false,
-            timeout: 800000,
+            enctype: 'multipart/form-data',
             headers: {Authorization: localStorage.getItem("token")},
             success: function (result) {
                 if (result.status == 200) {

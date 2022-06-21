@@ -33,7 +33,7 @@ public class PenilaianController {
     @Autowired
     private PenilaianInService penilaianInService;
 
-    @PostMapping(value = "/add", consumes = "multipart/form-data")
+    @PostMapping(value = "/add")
     public ResponseEntity<ResponseData<PenilaianResponse>> addket(@Valid PenialaianData keteranganData, Errors errors) {
 
         ResponseData<PenilaianResponse> responseData = new ResponseData<>();
