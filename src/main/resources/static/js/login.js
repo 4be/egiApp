@@ -36,6 +36,7 @@ $("#login").click(function () {
                     localStorage.setItem("nama", result.data.nama);
                     localStorage.setItem("role", result.data.role);
                     localStorage.setItem("nikmanager", result.data.nikmanager);
+                    localStorage.setItem("user_id", result.data.id);
                     location.href = "/hcms/user/";
 
 

@@ -15,6 +15,8 @@ public class PenialaianData {
 
     private String leadership;
 
+    private String penilai;
+
     private String motivasi;
 
     private String benchmarking;

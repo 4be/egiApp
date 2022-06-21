@@ -33,8 +33,8 @@ public class PenilaianController {
     @Autowired
     private PenilaianInService penilaianInService;
 
-    @PostMapping("/add")
-    public ResponseEntity<ResponseData<PenilaianResponse>> addket(@Valid @ModelAttribute @RequestBody PenialaianData keteranganData, Errors errors) {
+    @PostMapping(value = "/add", consumes = "multipart/form-data")
+    public ResponseEntity<ResponseData<PenilaianResponse>> addket(@Valid PenialaianData keteranganData, Errors errors) {
 
         ResponseData<PenilaianResponse> responseData = new ResponseData<>();
         Penilaian penilaian = new Penilaian();
@@ -70,6 +70,7 @@ public class PenilaianController {
 
         keteranganService.create(penilaian);
         penilaianResponse.setLeadership(keteranganData.getLeadership());
+//        penilaianResponse.setNikpenilai(keteranganData.getUser_id().getNik());
         penilaianResponse.setMotivasi(keteranganData.getMotivasi());
         penilaianResponse.setBenchmarking(keteranganData.getBenchmarking());
         penilaianResponse.setManagementStrategi(keteranganData.getManagementStrategi());

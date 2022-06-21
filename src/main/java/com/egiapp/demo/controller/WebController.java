@@ -69,13 +69,13 @@ public class WebController {
 
     @GetMapping("/hcms/user/penilaian")
     public String penilanan(Model model) {
-        model.addAttribute("title", "Dashboard");
+        model.addAttribute("title", "Penilaian");
         return "penilaian/penilaian";
     }
 
     @GetMapping("/hcms/user/datanilai")
     public String datanilai(Model model) {
-        model.addAttribute("title", "Dashboard");
+        model.addAttribute("title", "Data Nilai");
         return "penilaian/data_penilaian";
     }
 }

@@ -20,7 +20,7 @@ $(document).ready(function () {
             },
             title: function () {
                 let date = new Date().toLocaleDateString();
-                return 'SIKASEP - Rekap Data User (dibuat pada ' + formatDate(date,false,'mdy') + ')';
+                return 'SIKASEP - Rekap Data User (dibuat pada ' + formatDate(date, false, 'mdy') + ')';
             },
             messageTop: function () {
                 return ' ';
@@ -46,7 +46,7 @@ $(document).ready(function () {
         columnDefs: [{
             searchable: false,
             orderable: false,
-            targets: [0,9,10]
+            targets: [0, 9, 10]
         }],
         ScrollX: true,
         order: [[1, 'asc']],
@@ -58,7 +58,7 @@ $(document).ready(function () {
             {data: "tanggal_lahir", class: "tbl-center"},
             {data: "alamat", class: "tbl-center"},
             {data: "divisi", class: "tbl-center"},
-            {data: "nik_manager", class: "tbl-center"},
+            {data: "nikmanager", class: "tbl-center"},
             {data: "role", class: "tbl-center"},
             {
                 data: "nik",

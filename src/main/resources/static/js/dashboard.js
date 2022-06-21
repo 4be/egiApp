@@ -7,6 +7,7 @@ $(document).ready(function () {
         searching: false,
         paging: false,
         info: false,
+        sort: false,
         dom: "<'row'<'col-md-3'l><'col-md-5 text-left'B><'col-md-4'f>>" +
             "<'row'<'col-md-12'tr>>" +
             "<'row'<'col-md-5'i><'col-md-7'p>>",
@@ -95,6 +96,7 @@ $(document).ready(function () {
         searching: false,
         paging: false,
         info: false,
+        sort: false,
         dom: "<'row'<'col-md-3'l><'col-md-5 text-left'B><'col-md-4'f>>" +
             "<'row'<'col-md-12'tr>>" +
             "<'row'<'col-md-5'i><'col-md-7'p>>",

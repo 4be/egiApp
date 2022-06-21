@@ -1,70 +1,449 @@
 <!DOCTYPE html>
 <html lang="eng"
-      layout:decorate="~{fragments/user_layout}"
+      layout:decorate="~{fragments/user_layout.html}"
       xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
       xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="utf-8">
     <title th:text="${title}"></title>
+    <link href="https://cdn.datatables.net/1.10.25/css/jquery.dataTables.css" rel="stylesheet" type="text/css">
+    <script charset="utf8" src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.js"
+            type="text/javascript"></script>
 </head>
 <body>
 <th:block layout:fragment="content">
-    <!--     Page Heading -->
-    <!--    <h1 class="h3 mb-2 text-gray-800" th:text="${title}"></h1>-->
-    <!--    <br>-->
-    <div class="alert alert-success alert-dismissible fade show" id="sihapus" role="alert">
-        <strong>Sukses !</strong> User berhasil Dihapus.
+    <!-- Page Heading -->
+    <h5 class="h3 mb-2 text-gray-800" th:text="${title}"></h5>
+    <br>
+    <div class="alert alert-success alert-dismissible fade show" id="sisukses" role="alert">
+        <strong>Sukses !</strong> User berhasil ditambahkan.
         <button aria-label="Close" class="close" data-dismiss="alert" type="button">
             <span aria-hidden="true">&times;</span>
         </button>
     </div>
-    <div class="alert alert-success alert-dismissible fade show" id="siubah" role="alert">
-        <strong>Sukses !</strong> User berhasil Diubah.
+    <div class="alert alert-danger alert-dismissible fade show" id="sigagal" role="alert">
+        <strong>Gagal !</strong> Nik / Email sudah digunakan.
         <button aria-label="Close" class="close" data-dismiss="alert" type="button">
             <span aria-hidden="true">&times;</span>
         </button>
     </div>
     <br>
-    <!-- DataTales Example -->
+
+    <!--    <div class="card shadow mb-4">-->
+    <!--        <div class="card-header py-3">-->
+    <!--            <h6 class="m-0 font-weight-bold text-primary"><i class="fas fa-file-csv"></i> Tambah User (Upload Data CSV)-->
+    <!--            </h6>-->
+    <!--        </div>-->
+    <!--        <div class="card-body">-->
+    <!--            <div class="row">-->
+    <!--                <div class="col-lg-4">-->
+    <!--                    <a href="/img/Create-User-Template.csv" download="Create-User-Template.csv" target="_blank"-->
+    <!--                       class="btn btn-success">-->
+    <!--                        <i class="fas fa-file-download"></i> Download Template-->
+    <!--                    </a>-->
+    <!--                </div>-->
+    <!--            </div>-->
+    <!--            <br />-->
+    <!--            <form method="POST" enctype="multipart/form-data" id="my-form">-->
+    <!--                <input type="file" name="file" accept=".csv"><br/><br/>-->
+    <!--                <input type="submit" value="Upload" id="btnSubmit" class="btn btn-primary">-->
+    <!--            </form>-->
+    <!--        </div>-->
+    <!--    </div>-->
     <div class="card shadow mb-4">
-        <div class="card-header py-3">
-            <h6 class="m-0 font-weight-bold text-primary"><i class="fas fa-table"></i> Tabel Data Penilaian</h6>
-        </div>
-        <div class="card-body">
-            <div class="table-responsive">
-                <table cellspacing="0"
-                       class="table table-bordered table-striped hover row-border compact stripe order-column"
-                       id="dataUser" style="width:100%">
-                    <thead>
-                    <tr>
-                        <th>id</th>
-                        <th>Penilai</th>
-                        <th>Ternilai</th>
-                        <th>Leadership</th>
-                        <th>Motivasi</th>
-                        <th>Benchmarking</th>
-                        <th>ManagementStrategi</th>
-                        <th>BpjsInHealth</th>
-                        <th>Pff</th>
-                        <th>Pfsf</th>
-                        <th>Aiso9001</th>
-                        <th>Aiso140001</th>
-                        <th>Aohsas180001</th>
-                        <th>Bst</th>
-                        <th>Appe</th>
-                        <th>Aiso220000</th>
-                        <th>Star5</th>
-                    </tr>
-                    </thead>
-                </table>
+        <form enctype="multipart/form-data" id="my-form" method="POST">
+            <div class="card-header py-3">
+                <h6 class="m-0 font-weight-bold text-primary"><i class="fa fa-book"></i> Form Penilaian (Isi dengan
+                    sejujurnya)</h6>
             </div>
-        </div>
+            <div class="card-body">
+                <div class="table-responsive">
+                    <!--                <table>-->
+                    <!--                    <tr>-->
+                    <!--                        <td>-->
+                    <!--                            <div class="form-group">-->
+                    <!--                                <label for="nikKaryawan">NIK</label>-->
+                    <!--                                <input class="form-control" id="nikKaryawan" name="nikKaryawan"-->
+                    <!--                                       placeholder="Masukkan NIK"-->
+                    <!--                                       type="text">-->
+                    <!--                                <div class="valid-feedback">Valid.</div>-->
+                    <!--                                <div class="invalid-feedback">Please fill out this field.</div>-->
+                    <!--                            </div>-->
+                    <!--                        </td>-->
+                    <!--                        <td>-->
+                    <!--                            <div class="form-group">-->
+                    <!--                                &lt;!&ndash;                                <input class="form-control" id="namaKaryawan" name="namaKaryawan"&ndash;&gt;-->
+                    <!--                                &lt;!&ndash;                                       placeholder="Masukkan Nama"&ndash;&gt;-->
+                    <!--                                &lt;!&ndash;                                       type="text">&ndash;&gt;-->
+                    <!--                                <div class="valid-feedback">Valid.</div>-->
+                    <!--                                <div class="invalid-feedback">Please fill out this field.</div>-->
+                    <!--                            </div>-->
+                    <!--                        </td>-->
+                    <!--                        <td style="width: 100px">-->
+                    <!--                        </td>-->
+                    <!--                        <td>-->
+                    <!--                            <div class="form-group">-->
+                    <!--                                <label for="emailKaryawan">Email</label>-->
+                    <!--                                <input class="form-control" id="emailKaryawan" name="emailKaryawan"-->
+                    <!--                                       placeholder="Masukkan Email"-->
+                    <!--                                       type="email">-->
+                    <!--                                <div class="valid-feedback">Valid.</div>-->
+                    <!--                                <div class="invalid-feedback">Please fill out this field.</div>-->
+                    <!--                            </div>-->
+                    <!--                        </td>-->
+                    <!--                        <td style="width: 100px"></td>-->
+                    <!--                        <td>-->
+                    <!--                        </td>-->
+                    <!--                    </tr>-->
+                    <!--                    <tr>-->
+                    <!--                        <td>-->
+                    <!--                            <div class="form-group">-->
+                    <!--                                <label for="ttlKaryawan">Tanggal Lahir</label>-->
+                    <!--                                <input class="form-control" id="ttlKaryawan" name="ttlKaryawan"-->
+                    <!--                                       placeholder="Masukkan Tanggal Lahir"-->
+                    <!--                                       type="date">-->
+                    <!--                                <div class="valid-feedback">Valid.</div>-->
+                    <!--                                <div class="invalid-feedback">Please fill out this field.</div>-->
+                    <!--                            </div>-->
+                    <!--                        </td>-->
+                    <!--                        <td style="width: 100px"></td>-->
+                    <!--                        <td>-->
+                    <!--                            <div class="form-group">-->
+                    <!--                                <label for="alamatKaryawan">Alamat</label>-->
+                    <!--                                <input class="form-control" id="alamatKaryawan" name="alamatKaryawan"-->
+                    <!--                                       placeholder="Masukkan Alamat"-->
+                    <!--                                       type="text">-->
+                    <!--                                <div class="valid-feedback">Valid.</div>-->
+                    <!--                                <div class="invalid-feedback">Please fill out this field.</div>-->
+                    <!--                            </div>-->
+                    <!--                        </td>-->
+                    <!--                        <td style="width: 100px"></td>-->
+                    <!--                        <td>-->
+                    <!--                            <div class="form-group">-->
+                    <!--                                                <label for="divisiKaryawan">Divisi</label>-->
+                    <!--                                                <input class="form-control" id="divisiKaryawan" name="divisiKaryawan"-->
+                    <!--                                                       placeholder="Masukkan Divisi"-->
+                    <!--                                                       type="text">-->
+                    <!--                                                <div class="valid-feedback">Valid.</div>-->
+                    <!--                                                <div class="invalid-feedback">Please fill out this field.</div>-->
+                    <!--                            </div>-->
+                    <!--                        </td>-->
+                    <!--                        <td style="width: 100px"></td>-->
+                    <!--                        <td>-->
+                    <!--                            <div class="form-group">-->
+                    <!--                                <label for="roleKaryawan">Role</label>-->
+                    <!--                                <br>-->
+                    <!--                                <select class="form-select form-select-sm"-->
+                    <!--                                        id="roleKaryawan" name="roleKaryawan">-->
+                    <!--                                    <option selected value="GL">GL</option>-->
+                    <!--                                    <option value="SPV"> SPV</option>-->
+                    <!--                                    <option selected value="PEGAWAI">PEGAWAI</option>-->
+                    <!--                                </select>-->
+                    <!--                            </div>-->
+                    <!--                        </td>-->
+                    <!--                    </tr>-->
+                    <!--                </table>-->
+
+                    <div class="form-group">
+                        <label for="niktujuan">Masukan nik yang dinilai</label>
+                        <input class="form-control" id="niktujuan" name="niktujuan"
+                               placeholder="Nik"
+                               type="text">
+                        <div class="valid-feedback">Valid.</div>
+                        <div class="invalid-feedback">Please fill out this field.</div>
+                    </div>
+
+                    <table class="table">
+                        <thead>
+                        <tr>
+                            <th scope="col">No</th>
+                            <th scope="col">Kategori</th>
+                            <th scope="col">Nilai</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <th scope="row">1</th>
+                            <td>leadership</td>
+                            <td>
+                                <div class="form-group">
+                                    <label for="leadership"></label>
+                                    <select class="form-control" id="leadership"
+                                            name="leadership">
+                                        <option selected value="A">A</option>
+                                        <option value="B">B</option>
+                                        <option value="C">C</option>
+                                        <option value="D">D</option>
+                                    </select>
+                                    <div class="valid-feedback">Valid.</div>
+                                    <div class="invalid-feedback">Please fill out this field.</div>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th scope="row">2</th>
+                            <td>motivasi</td>
+                            <td>
+                                <div class="form-group">
+                                    <select aria-label=".form-select-lg example" class="form-select form-select-lg mb-3"
+                                            id="motivasi"
+                                            name="motivasi">
+                                        <option selected value="A">A</option>
+                                        <option value="B">B</option>
+                                        <option value="C">C</option>
+                                        <option value="D">D</option>
+                                    </select>
+                                    <div class="valid-feedback">Valid.</div>
+                                    <div class="invalid-feedback">Please fill out this field.</div>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th scope="row">3</th>
+                            <td>benchmarking</td>
+                            <td>
+                                <div class="form-group">
+                                    <select aria-label=".form-select-lg example" class="form-select form-select-lg mb-3"
+                                            id="benchmarking"
+                                            name="benchmarking">
+                                        <option selected value="A">A</option>
+                                        <option value="B">B</option>
+                                        <option value="C">C</option>
+                                        <option value="D">D</option>
+                                    </select>
+                                    <div class="valid-feedback">Valid.</div>
+                                    <div class="invalid-feedback">Please fill out this field.</div>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th scope="row">4</th>
+                            <td>managementStrategi</td>
+                            <td>
+                                <div class="form-group">
+                                    <select aria-label=".form-select-lg example" class="form-select form-select-lg mb-3"
+                                            id="managementStrategi"
+                                            name="managementStrategi">
+                                        <option selected value="A">A</option>
+                                        <option value="B">B</option>
+                                        <option value="C">C</option>
+                                        <option value="D">D</option>
+                                    </select>
+                                    <div class="valid-feedback">Valid.</div>
+                                    <div class="invalid-feedback">Please fill out this field.</div>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th scope="row">5</th>
+                            <td>PFFF</td>
+                            <td>
+                                <div class="form-group">
+                                    <select aria-label=".form-select-lg example" class="form-select form-select-lg mb-3"
+                                            id="PFF"
+                                            name="PFF">
+                                        <option selected value="A">A</option>
+                                        <option value="B">B</option>
+                                        <option value="C">C</option>
+                                        <option value="D">D</option>
+                                    </select>
+                                    <div class="valid-feedback">Valid.</div>
+                                    <div class="invalid-feedback">Please fill out this field.</div>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th scope="row">6</th>
+                            <td>PFSF</td>
+                            <td>
+                                <div class="form-group">
+                                    <select aria-label=".form-select-lg example" class="form-select form-select-lg mb-3"
+                                            id="PFSF"
+                                            name="PFSF">
+                                        <option selected value="A">A</option>
+                                        <option value="B">B</option>
+                                        <option value="C">C</option>
+                                        <option value="D">D</option>
+                                    </select>
+                                    <div class="valid-feedback">Valid.</div>
+                                    <div class="invalid-feedback">Please fill out this field.</div>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th scope="row">7</th>
+                            <td>AISO9001</td>
+                            <td>
+                                <div class="form-group">
+                                    <select aria-label=".form-select-lg example" class="form-select form-select-lg mb-3"
+                                            id="AISO9001"
+                                            name="AISO9001">
+                                        <option selected value="A">A</option>
+                                        <option value="B">B</option>
+                                        <option value="C">C</option>
+                                        <option value="D">D</option>
+                                    </select>
+                                    <div class="valid-feedback">Valid.</div>
+                                    <div class="invalid-feedback">Please fill out this field.</div>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th scope="row">8</th>
+                            <td>AISO140001</td>
+                            <td>
+                                <div class="form-group">
+                                    <select aria-label=".form-select-lg example" class="form-select form-select-lg mb-3"
+                                            id="AISO140001"
+                                            name="AISO140001">
+                                        <option selected value="A">A</option>
+                                        <option value="B">B</option>
+                                        <option value="C">C</option>
+                                        <option value="D">D</option>
+                                    </select>
+                                    <div class="valid-feedback">Valid.</div>
+                                    <div class="invalid-feedback">Please fill out this field.</div>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th scope="row">9</th>
+                            <td>AOHSAS180001</td>
+                            <td>
+                                <div class="form-group">
+                                    <select aria-label=".form-select-lg example" class="form-select form-select-lg mb-3"
+                                            id="AOHSAS180001"
+                                            name="AOHSAS180001">
+                                        <option selected value="A">A</option>
+                                        <option value="B">B</option>
+                                        <option value="C">C</option>
+                                        <option value="D">D</option>
+                                    </select>
+                                    <div class="valid-feedback">Valid.</div>
+                                    <div class="invalid-feedback">Please fill out this field.</div>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th scope="row">10</th>
+                            <td>APPE</td>
+                            <td>
+                                <div class="form-group">
+                                    <select aria-label=".form-select-lg example" class="form-select form-select-lg mb-3"
+                                            id="APPE"
+                                            name="APPE">
+                                        <option selected value="A">A</option>
+                                        <option value="B">B</option>
+                                        <option value="C">C</option>
+                                        <option value="D">D</option>
+                                    </select>
+                                    <div class="valid-feedback">Valid.</div>
+                                    <div class="invalid-feedback">Please fill out this field.</div>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th scope="row">11</th>
+                            <td>bpjsInHealth</td>
+                            <td>
+                                <div class="form-group">
+                                    <select aria-label=".form-select-lg example" class="form-select form-select-lg mb-3"
+                                            id="bpjsInHealth"
+                                            name="bpjsInHealth">
+                                        <option selected value="A">A</option>
+                                        <option value="B">B</option>
+                                        <option value="C">C</option>
+                                        <option value="D">D</option>
+                                    </select>
+                                    <div class="valid-feedback">Valid.</div>
+                                    <div class="invalid-feedback">Please fill out this field.</div>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th scope="row">12</th>
+                            <td>AISO220000</td>
+                            <td>
+                                <div class="form-group">
+                                    <select aria-label=".form-select-lg example" class="form-select form-select-lg mb-3"
+                                            id="AISO220000"
+                                            name="AISO220000">
+                                        <option selected value="A">A</option>
+                                        <option value="B">B</option>
+                                        <option value="C">C</option>
+                                        <option value="D">D</option>
+                                    </select>
+                                    <div class="valid-feedback">Valid.</div>
+                                    <div class="invalid-feedback">Please fill out this field.</div>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th scope="row">13</th>
+                            <td>BST</td>
+                            <td>
+                                <div class="form-group">
+                                    <select aria-label=".form-select-lg example" class="form-select form-select-lg mb-3"
+                                            id="BST"
+                                            name="BST">
+                                        <option selected value="A">A</option>
+                                        <option value="B">B</option>
+                                        <option value="C">C</option>
+                                        <option value="D">D</option>
+                                    </select>
+                                    <div class="valid-feedback">Valid.</div>
+                                    <div class="invalid-feedback">Please fill out this field.</div>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th scope="row">14</th>
+                            <td>STAR5</td>
+                            <td>
+                                <div class="form-group">
+                                    <select aria-label=".form-select-lg example" class="form-select form-select-lg mb-3"
+                                            id="STAR5"
+                                            name="STAR5">
+                                        <option selected value="A">A</option>
+                                        <option value="B">B</option>
+                                        <option value="C">C</option>
+                                        <option value="D">D</option>
+                                    </select>
+                                    <div class="valid-feedback">Valid.</div>
+                                    <div class="invalid-feedback">Please fill out this field.</div>
+                                </div>
+                            </td>
+                        </tr>
+
+
+                        <div class="form-group">
+                            <select aria-label=".form-select-lg example" class="form-select form-select-lg mb-3"
+                                    id="user_id"
+                                    name="user_id">
+                                <option selected value="2">2</option>
+                                <option value="B">B</option>
+                                <option value="C">C</option>
+                                <option value="D">D</option>
+                            </select>
+                            <div class="valid-feedback">Valid.</div>
+                            <div class="invalid-feedback">Please fill out this field.</div>
+                        </div>
+
+
+                        </tbody>
+                    </table>
+                    <br>
+                    <button class="btn btn-primary" id="submit" name="submit" type="submit">Submit</button>
+
+
+                </div>
+            </div>
+        </form>
     </div>
+    <script></script>
 </th:block>
 <th:block layout:fragment="custom_script">
-    <script src="/js/datapenilaian.js"></script>
-    <script src="https://cdn.datatables.net/buttons/1.7.1/js/dataTables.buttons.min.js"></script>
-    <script src="https://cdn.datatables.net/buttons/1.7.1/js/buttons.html5.min.js"></script>
+    <script src="/js/createPenilaian.js"></script>
 </th:block>
 </body>
 </html>
