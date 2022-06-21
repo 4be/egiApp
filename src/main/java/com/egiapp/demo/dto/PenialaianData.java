@@ -7,45 +7,42 @@ import lombok.Setter;
 import org.springframework.web.multipart.MultipartFile;
 
 import javax.persistence.Column;
+import javax.persistence.ManyToOne;
 
 
 @Getter
 @Setter
 public class PenialaianData {
 
-    private String leadership;
+    private String pemecahanMasalah;
 
-    private String penilai;
+    private String inisiatif;
+
+    private String loyalitas;
 
     private String motivasi;
 
-    private String benchmarking;
+    private String etikaKomunikasi;
 
-    private String managementStrategi;
+    private String displinKehadiran;
 
-    private String PFF;
+    private String kerapihan;
 
-    private String PFSF;
+    private String tanggungJawab;
 
-    private String AISO9001;
+    private String kualitasPekerjaan;
 
-    private String AISO140001;
+    private String keterampilan;
 
-    private String AOHSAS180001;
+    private String kecepatanKerja;
 
-    private String APPE;
+    private String mengetahuiPekerjaan;
 
-    private String bpjsInHealth;
-
-    private String AISO220000;
-
-    private String BST;
-
-    private String STAR5;
-
-    private String niktujuan;
+    private String categoryname;
 
     private User user_id;
+
+    private String niktujuan;
 
 
 }

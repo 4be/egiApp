@@ -1,7 +1,11 @@
 package com.egiapp.demo.model.response.payload;
 
+import com.egiapp.demo.model.entity.User;
 import lombok.AllArgsConstructor;
 import lombok.Data;
+
+import javax.persistence.Column;
+import javax.persistence.ManyToOne;
 
 @Data
 @AllArgsConstructor
@@ -9,36 +13,34 @@ public class PenilaianResponse {
 
 
     private Long id;
-    
-    private String nikpenilai;
 
-    private String leadership;
+    private String pemecahanMasalah;
+
+    private String inisiatif;
+
+    private String loyalitas;
 
     private String motivasi;
 
-    private String benchmarking;
+    private String etikaKomunikasi;
 
-    private String managementStrategi;
+    private String displinKehadiran;
 
-    private String PFF;
+    private String kerapihan;
 
-    private String PFSF;
+    private String tanggungJawab;
 
-    private String AISO9001;
+    private String kualitasPekerjaan;
 
-    private String AISO140001;
+    private String keterampilan;
 
-    private String AOHSAS180001;
+    private String kecepatanKerja;
 
-    private String APPE;
+    private String mengetahuiPekerjaan;
 
-    private String bpjsInHealth;
+    private String categoryname;
 
-    private String AISO220000;
-
-    private String BST;
-
-    private String STAR5;
+    private String user_id;
 
     private String niktujuan;
 
