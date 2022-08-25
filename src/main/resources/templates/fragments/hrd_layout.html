@@ -3,13 +3,13 @@
       xmlns="http://www.w3.org/1999/html"
       xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" xmlns:th="http://www.thymeleaf.org">
 <head>
-    <script src="/js/accessRights.js"></script>
+    <script src="/static/js/accessHrd.js"></script>
     <meta charset="utf-8">
     <meta content="IE=edge" http-equiv="X-UA-Compatible">
     <meta content="width=device-width, initial-scale=1, shrink-to-fit=no" name="viewport">
     <meta content="" name="description">
     <meta content="" name="author">
-    <link href="/img/logo-sinarmas-favicon.jpg" rel="icon" type="image/x-icon"/>
+    <link href="" rel="icon" type="image/x-icon"/>
     <title layout:title-pattern="$CONTENT_TITLE | $LAYOUT_TITLE">SIKEO</title>
     <script crossorigin="anonymous" src="https://kit.fontawesome.com/5e59a4bfec.js"></script>
     <link
@@ -29,60 +29,40 @@
     <!-- Sidebar -->
     <ul class="navbar-nav sidebar sidebar-dark accordion" id="accordionSidebar">
         <!-- Sidebar - Brand -->
-        <a class="sidebar-brand d-flex align-items-center justify-content-center" th:href="@{/hcms}">
+        <a class="sidebar-brand d-flex align-items-center justify-content-center" th:href="@{/hcms/user/}">
             <div class="sidebar-brand-icon">
-                <img height="100" src="/img/sikeohdlogo.png">
+                <i class="far fa-file-alt"></i>
             </div>
+            <div class="sidebar-brand-text mx-3">SIKEO</div>
         </a>
         <!-- Divider -->
         <hr class="sidebar-divider my-0">
         <!-- Nav Item - Dashboard -->
-        <li class="nav-item" th:classappend="${ #request.requestURI == '/hcms' ? 'active':''}">
-            <a class="nav-link" th:href="@{/hcms}">
+        <li class="nav-item" th:classappend="${ #request.requestURI == '/user' ? 'active':''}">
+            <a class="nav-link" th:href="@{/hcms/user/}">
                 <i class="fas fa-fw fa-tachometer-alt"></i>
                 <span>Dashboard</span></a>
         </li>
         <!-- Divider -->
         <hr class="sidebar-divider">
         <!-- Heading -->
-        <div class="sidebar-heading">
-            ALAT
-        </div>
-        <!-- Nav Item - Pages Collapse Menu -->
-        <li class="nav-item"
-            th:classappend="${ #request.requestURI == '/hcms/datauser' || #request.requestURI == '/hcms/create' ? 'active':''}">
-            <a aria-controls="collapseTwo" aria-expanded="true" class="nav-link collapsed" data-target="#collapseTwo"
-               data-toggle="collapse" href="#">
-                <i class="fas fa-user-cog"></i>
-                <span>Kelola User</span>
-            </a>
-            <div aria-labelledby="headingTwo" class="collapse" data-parent="#accordionSidebar" id="collapseTwo">
-                <div class="bg-white py-2 collapse-inner rounded">
-                    <a class="collapse-item" th:href="@{/hcms/datauser}">
-                        <i class="fas fa-fw fa-user"></i>&nbsp;<span>Data User</span>
-                    </a>
-                    <a class="collapse-item" th:href="@{/hcms/create}">
-                        <i class="fas fa-fw fa-user-plus"></i>&nbsp;<span>Tambah User</span>
-                    </a>
-                </div>
-            </div>
-        </li>
-
-        <li class="nav-item" th:classappend="${ #request.requestURI == '/hcms/penilaian ' ? 'active':''}">
-            <a class="nav-link" th:href="@{/hcms/penilaian}">
-                <i class="fas fa-fw fa-user-clock"></i>
-                <span>Penilaian</span></a>
-        </li>
-        <!-- Divider -->
-        <hr class="sidebar-divider">
         <!-- Heading -->
         <div class="sidebar-heading">
             FITUR
         </div>
-        <li class="nav-item" th:classappend="${ #request.requestURI == '/hcms/penilaian ' ? 'active':''}">
-            <a class="nav-link" th:href="@{/hcms/datapenilaian}">
+        <li class="nav-item" th:classappend="${ #request.requestURI == '/hcms/user/penilaian ' ? 'active':''}">
+            <a class="nav-link" th:href="@{/hcms/user/penilaian}">
+                <i class="fas fa-user-cog"></i>
+                <span>Penilaian</span></a>
+        </li>
+
+        <div class="sidebar-heading">
+            FITUR
+        </div>
+        <li class="nav-item" th:classappend="${ #request.requestURI == '/hcms/user/datanilai ' ? 'active':''}">
+            <a class="nav-link" th:href="@{/hcms/user/datanilai}">
                 <i class="fas fa-fw fa-user-clock"></i>
-                <span>Rekap Nilai</span></a>
+                <span>Data Nilai</span></a>
         </li>
         <!-- Nav Item - Tables -->
         <!--        <li class="nav-item" th:classappend="${ #request.requestURI == '/hcms/dataketerangan' ? 'active':''}">-->
@@ -124,7 +104,11 @@
                 <button class="btn btn-link d-md-none rounded-circle mr-3" id="sidebarToggleTop">
                     <i class="fa fa-bars"></i>
                 </button>
-                <h5 class="mt-2">Appraisal<span class="text-primary font-weight-bold">Indorama</span></h5>
+                <h5 class="mt-2">
+                    <span class="text-primary font-weight-bold">Si</span>stem <span
+                    class="text-primary font-weight-bold">Ke</span>hadiran
+                    <span class="text-primary font-weight-bold">O</span>nline
+                </h5>
                 <!-- Topbar Navbar -->
                 <ul class="navbar-nav ml-auto">
                     <!-- Nav Item - User Information -->

@@ -60,12 +60,18 @@ public class WebController {
         return "user/data_user";
     }
 
+    @GetMapping("/hcms/hrd")
+    public String indexHrd(Model model) {
+        model.addAttribute("title", "Dashboard");
+        return "dashboard_hrd";
+    }
+
+
     @GetMapping("/hcms/user")
     public String indexUser(Model model) {
         model.addAttribute("title", "Dashboard");
         return "dashboard_user";
     }
-
 
     @GetMapping("/hcms/user/penilaian")
     public String penilanan(Model model) {

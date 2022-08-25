@@ -31,6 +31,19 @@ $("#login").click(function () {
                     localStorage.setItem("role", result.data.role);
                     localStorage.setItem("nikmanager", result.data.nikmanager);
                     location.href = "/hcms/";
+                } else if (result.data.role == 'HRD') {
+                    localStorage.setItem("token", result.data.token);
+                    localStorage.setItem("nama", result.data.nama);
+                    localStorage.setItem("role", result.data.role);
+                    location.href = "/hcms/hrd/";
+                    let json = result.data;
+                    json.forEach((nilai) => {
+                        let keys = Object.keys(nilai);
+                        keys.forEach((isi) => {
+                            console.log(isi);
+                        })
+                        console.log(nilai)
+                    })
                 } else if (result.data.role == 'GL' || 'SPV' || 'PEGAWAI') {
                     localStorage.setItem("token", result.data.token);
                     localStorage.setItem("nama", result.data.nama);
@@ -61,11 +74,13 @@ $("#login").click(function () {
                     location.reload();
                 }, 2000)
             }
-        },
+        }
+        ,
         error: function (result) {
             if (result.status == 401) {
                 location.href = "/";
             }
         }
     });
-});
+})
+;

@@ -4,5 +4,6 @@ public enum ERole {
     PENINJAU,
     GL,
     SPV,
-    PEGAWAI
+    PEGAWAI,
+    HRD
 }
