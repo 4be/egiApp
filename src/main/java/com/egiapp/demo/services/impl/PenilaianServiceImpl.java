@@ -174,7 +174,7 @@ public class PenilaianServiceImpl implements PenilaianInService {
     public NilakuResponse getnilaku(Penilaian penilaian) {
         NilakuResponse nilaikuresponse = new NilakuResponse(
             penilaian.getId(),
-            penilaian.getNiktujuan(),
+            penilaian.getUser_id().getNik(),
             penilaian.getUser_id().getRoles().iterator().next().getRolename().toString(),
             penilaian.getTanggungJawab(),
             penilaian.getInisiatif(),

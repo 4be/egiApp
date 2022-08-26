@@ -47,15 +47,15 @@ $(document).ready(function () {
             }
         },
         columnDefs: [{
-            searchable: false,
-            orderable: false,
+            searchable: true,
+            orderable: true,
             targets: [0, 9, 10]
         }],
 
         ScrollX: true,
         order: [[0, 'asc']],
         columns: [
-            {data: "id", class: "tbl-center"},
+            {data: "id", class: "tbl-center d-none"},
             {data: "nikpenilai", class: "tbl-center"},
             {data: "jabatan", class: "tbl-center"},
             {data: "tanggungJawab", class: "tbl-center"},
