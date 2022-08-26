@@ -3,10 +3,7 @@ package com.egiapp.demo.services.impl;
 import com.egiapp.demo.model.entity.Penilaian;
 import com.egiapp.demo.model.response.FailedResponse;
 import com.egiapp.demo.model.response.SuccessResponse;
-import com.egiapp.demo.model.response.payload.LoginResponse;
-import com.egiapp.demo.model.response.payload.NilaiResponse;
-import com.egiapp.demo.model.response.payload.PenilaianResponse;
-import com.egiapp.demo.model.response.payload.ResponseBest;
+import com.egiapp.demo.model.response.payload.*;
 import com.egiapp.demo.repository.PenilaianInRepository;
 import com.egiapp.demo.services.PenilaianInService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -35,22 +32,6 @@ public class PenilaianServiceImpl implements PenilaianInService {
                 penilaianResponseList.add(penilaianResponse);
             }
 
-
-//            NilaiResponse nilaiResponse = new NilaiResponse(
-//                penilaianList.getId(),
-//                penilaianList.getTanggungJawab(),
-//                penilaianList.getInisiatif(),
-//                penilaianList.getKerjaSama(),
-//                penilaianList.getEtikaKomunikasi(),
-//                penilaianList.getDisplinKehadiran(),
-//                penilaianList.getKerapihan(),
-//                penilaianList.getKualitasPekerjaan(),
-//                penilaianList.getKecepatanKerja(),
-//                penilaianList.getMengetahuiPekerjaan(),
-//                penilaianList.getTotalNilai(),
-//                penilaianList.getUser_id().getNik(),
-//                penilaianList.getNiktujuan()
-//            );
             return new SuccessResponse(HttpStatus.OK, "Success", penilaianResponseList);
         } catch (Exception e) {
             return new FailedResponse(HttpStatus.MULTI_STATUS, e.getMessage());
@@ -94,6 +75,25 @@ public class PenilaianServiceImpl implements PenilaianInService {
         }
     }
 
+    @Override
+    public Object getNilaibyNik(String nik) {
+        try {
+            List<Penilaian> penilaianList = penilaianInRepository.findPenilaianByNiktujuan(nik);
+            List<NilakuResponse> penilaianResponseList = new ArrayList<>();
+
+            for (Penilaian penilaian : penilaianList) {
+                NilakuResponse penilaianResponse = getnilaku(penilaian);
+                penilaianResponseList.add(penilaianResponse);
+            }
+
+            return new SuccessResponse(HttpStatus.OK, "Success", penilaianResponseList);
+        } catch (Exception e) {
+            return new FailedResponse(HttpStatus.MULTI_STATUS, e.getMessage());
+        }
+
+
+    }
+
 //    @Override
 //    public Object findNilaiByNik(String nik) {
 //        try {
@@ -133,6 +133,9 @@ public class PenilaianServiceImpl implements PenilaianInService {
     public NilaiResponse getUserResponse(Penilaian penilaian) {
         NilaiResponse penilaianResponse = new NilaiResponse(
             penilaian.getId(),
+            penilaian.getUser_id().getNik(),
+            penilaian.getNiktujuan(),
+            penilaian.getUser_id().getRoles().iterator().next().getRolename().toString(),
             penilaian.getTanggungJawab(),
             penilaian.getInisiatif(),
             penilaian.getKerjaSama(),
@@ -142,9 +145,7 @@ public class PenilaianServiceImpl implements PenilaianInService {
             penilaian.getKualitasPekerjaan(),
             penilaian.getKecepatanKerja(),
             penilaian.getMengetahuiPekerjaan(),
-            penilaian.getTotalNilai(),
-            penilaian.getUser_id().getNik(),
-            penilaian.getNiktujuan()
+            penilaian.getTotalNilai()
         );
         return penilaianResponse;
     }
@@ -167,6 +168,26 @@ public class PenilaianServiceImpl implements PenilaianInService {
             penilaian.getTotalNilai()
         );
         return penilaianBestResponse;
+    }
+
+
+    public NilakuResponse getnilaku(Penilaian penilaian) {
+        NilakuResponse nilaikuresponse = new NilakuResponse(
+            penilaian.getId(),
+            penilaian.getNiktujuan(),
+            penilaian.getUser_id().getRoles().iterator().next().getRolename().toString(),
+            penilaian.getTanggungJawab(),
+            penilaian.getInisiatif(),
+            penilaian.getKerjaSama(),
+            penilaian.getEtikaKomunikasi(),
+            penilaian.getDisplinKehadiran(),
+            penilaian.getKerapihan(),
+            penilaian.getKualitasPekerjaan(),
+            penilaian.getKecepatanKerja(),
+            penilaian.getMengetahuiPekerjaan(),
+            penilaian.getTotalNilai()
+        );
+        return nilaikuresponse;
     }
 
 }

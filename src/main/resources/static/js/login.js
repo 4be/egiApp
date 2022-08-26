@@ -27,6 +27,7 @@ $("#login").click(function () {
             if (result.status == 200) {
                 if (result.data.role == 'PENINJAU') {
                     localStorage.setItem("token", result.data.token);
+                    localStorage.setItem("nik", result.data.nik);
                     localStorage.setItem("nama", result.data.nama);
                     localStorage.setItem("role", result.data.role);
                     localStorage.setItem("nikmanager", result.data.nikmanager);
@@ -48,6 +49,7 @@ $("#login").click(function () {
                     })
                 } else if (result.data.role == 'GL' || 'SPV' || 'PEGAWAI') {
                     localStorage.setItem("token", result.data.token);
+                    localStorage.setItem("nik", result.data.nik);
                     localStorage.setItem("nama", result.data.nama);
                     localStorage.setItem("role", result.data.role);
                     localStorage.setItem("nikmanager", result.data.nikmanager);

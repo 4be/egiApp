@@ -1,18 +1,14 @@
 package com.egiapp.demo.model.response.payload;
 
-import com.egiapp.demo.model.entity.User;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 
-@Data
 @AllArgsConstructor
-public class NilaiResponse {
-
+@Data
+public class NilakuResponse {
     private Long id;
 
     private String nikpenilai;
-
-    private String niktujuan;
 
     private String jabatan;
 
@@ -35,6 +31,5 @@ public class NilaiResponse {
     private Long mengetahuiPekerjaan;
 
     private Double totalNilai;
-
 
 }

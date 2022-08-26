@@ -8,6 +8,8 @@ public interface PenilaianInService {
 
     Object getworstNilai();
 
+    Object getNilaibyNik(String nik);
+
 //    Object findNilaiByNik(String nik);
 
 }

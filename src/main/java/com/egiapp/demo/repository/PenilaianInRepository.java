@@ -17,6 +17,8 @@ public interface PenilaianInRepository extends JpaRepository<Penilaian, Long> {
     @Query(value = "select * from tbl_penilaian GROUP BY tbl_penilaian.niktujuan,tbl_penilaian.id ORDER BY tbl_penilaian.total_nilai ASC LIMIT 10", nativeQuery = true)
     List<Penilaian> carinilaiterendah();
 
+    List<Penilaian> findPenilaianByNiktujuan(String niktujuan);
+
     List<Penilaian> findPenilaianByIdNotNull();
 //
 //    @Query(value = "SELECT * FROM tbl_penilaian where user_id_id =:nik", nativeQuery = true)

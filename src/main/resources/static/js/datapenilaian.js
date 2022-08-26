@@ -23,7 +23,7 @@ $(document).ready(function () {
             },
             title: function () {
                 let date = new Date().toLocaleDateString();
-                return 'SIKEO - Rekap Data Penilaian (dibuat pada ' + formatDate(date, false, 'mdy') + ')';
+                return 'AppraisalIndorama - Rekap Data Penilaian (dibuat pada ' + formatDate(date, false, 'mdy') + ')';
             },
             messageTop: function () {
                 return ' ';
@@ -57,6 +57,7 @@ $(document).ready(function () {
         columns: [
             {data: "id", class: "tbl-center"},
             {data: "nikpenilai", class: "tbl-center"},
+            {data: "jabatan", class: "tbl-center"},
             {data: "niktujuan", class: "tbl-center"},
             {data: "tanggungJawab", class: "tbl-center"},
             {data: "inisiatif", class: "tbl-center"},

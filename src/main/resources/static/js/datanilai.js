@@ -1,27 +1,29 @@
 var data = null;
+let yoman = "gas";
+
+
 $(document).ready(function () {
     $('#sihapus').hide();
     $('#siubah').hide();
     var table = $('#dataUser').DataTable({
-        info: false,
-        dom: "<'row'<'col-md-5 text-left'B><'col-md-3'l><'col-md-4'f>>" +
+        dom: "<'row'<'col-md-3'l><'col-md-5 text-left'B><'col-md-4'f>>" +
             "<'row'<'col-md-12'tr>>" +
             "<'row'<'col-md-5'i><'col-md-7'p>>",
         buttons: [{
             text: "<i class=\"fas fa-download\"></i> Export CSV",
             extend: 'csv',
             exportOptions: {
-                columns: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16]
+                columns: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
             }
         }, {
             text: "<i class=\"fas fa-download\"></i> Export Excel",
             extend: 'excel',
             exportOptions: {
-                columns: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16]
+                columns: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
             },
             title: function () {
                 let date = new Date().toLocaleDateString();
-                return 'SIKEO - Rekap Data Penilaian (dibuat pada ' + formatDate(date, false, 'mdy') + ')';
+                return 'AppraisalIndorama - Rekap Data Penilaian (dibuat pada ' + formatDate(date, false, 'mdy') + ')';
             },
             messageTop: function () {
                 return ' ';
@@ -32,7 +34,7 @@ $(document).ready(function () {
             ['10 rows', '25 rows', '50 rows', 'Show all']
         ],
         ajax: {
-            url: "/api/penilaian/list/",
+            url: "/api/penilaian/nik/" + localStorage.getItem("nik"),
             type: "GET",
             data: "data",
             headers: {Authorization: localStorage.getItem("token")},
@@ -49,22 +51,23 @@ $(document).ready(function () {
             orderable: false,
             targets: [0, 9, 10]
         }],
+
         ScrollX: true,
-        order: [[1, 'asc']],
+        order: [[0, 'asc']],
         columns: [
-            {data: "id", class: "tbl-center d-none"},
-            {data: "tanggungJawab", class: "tbl-center d-none"},
-            {data: "inisiatif", class: "tbl-center d-none"},
-            {data: "kerjaSama", class: "tbl-center d-none"},
-            {data: "etikaKomunikasi", class: "tbl-center d-none"},
-            {data: "displinKehadiran", class: "tbl-center d-none"},
-            {data: "kerapihan", class: "tbl-center d-none"},
-            {data: "kualitasPekerjaan", class: "tbl-center "},
-            {data: "kecepatanKerja", class: "tbl-center d-none"},
-            {data: "mengetahuiPekerjaan", class: "tbl-center d-none"},
-            {data: "totalNilai", class: "tbl-center d-none"},
-            {data: "nikpenilai", class: "tbl-center "},
-            {data: "niktujuan", class: "tbl-center d-none"},
+            {data: "id", class: "tbl-center"},
+            {data: "nikpenilai", class: "tbl-center"},
+            {data: "jabatan", class: "tbl-center"},
+            {data: "tanggungJawab", class: "tbl-center"},
+            {data: "inisiatif", class: "tbl-center"},
+            {data: "etikaKomunikasi", class: "tbl-center"},
+            {data: "displinKehadiran", class: "tbl-center"},
+            {data: "kerapihan", class: "tbl-center"},
+            {data: "kualitasPekerjaan", class: "tbl-center"},
+            {data: "kecepatanKerja", class: "tbl-center"},
+            {data: "mengetahuiPekerjaan", class: "tbl-center"},
+            {data: "kerjaSama", class: "tbl-center"},
+            {data: "totalNilai", class: "tbl-center"}
         ],
     });
     // table.on('draw.dt', function () {
