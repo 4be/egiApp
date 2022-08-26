@@ -20,7 +20,7 @@ $(document).ready(function () {
             },
             title: function () {
                 let date = new Date().toLocaleDateString();
-                return 'SIKASEP - Rekap Data User (dibuat pada ' + formatDate(date, false, 'mdy') + ')';
+                return 'AppraisalIndorama - Rekap Data User (dibuat pada ' + formatDate(date, false, 'mdy') + ')';
             },
             messageTop: function () {
                 return ' ';
