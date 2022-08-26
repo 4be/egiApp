@@ -6,6 +6,8 @@ public interface PenilaianInService {
 
     Object getbestNilai();
 
+    Object getworstNilai();
+
 //    Object findNilaiByNik(String nik);
 
 }

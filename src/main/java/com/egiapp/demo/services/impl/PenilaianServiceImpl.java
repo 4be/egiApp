@@ -76,6 +76,24 @@ public class PenilaianServiceImpl implements PenilaianInService {
         }
     }
 
+    @Override
+    @Transactional
+    public Object getworstNilai() {
+        try {
+            List<Penilaian> penilaianList = penilaianInRepository.carinilaiterendah();
+            List<ResponseBest> penilaianResponseList = new ArrayList<>();
+
+            for (Penilaian penilaian : penilaianList) {
+                ResponseBest penilaianResponse = getUserBest(penilaian);
+                penilaianResponseList.add(penilaianResponse);
+            }
+
+            return new SuccessResponse(HttpStatus.OK, "Success", penilaianResponseList);
+        } catch (Exception e) {
+            return new FailedResponse(HttpStatus.MULTI_STATUS, e.getMessage());
+        }
+    }
+
 //    @Override
 //    public Object findNilaiByNik(String nik) {
 //        try {

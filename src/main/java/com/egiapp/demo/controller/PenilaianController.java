@@ -146,6 +146,12 @@ public class PenilaianController {
         Object data = penilaianInService.getbestNilai();
         return ResponseEntity.ok(data);
     }
+
+    @GetMapping("/list/worst/")
+    public ResponseEntity<Object> getworstNilai() {
+        Object data = penilaianInService.getworstNilai();
+        return ResponseEntity.ok(data);
+    }
 //
 //    @GetMapping("/nik/{nik}")
 //    public ResponseEntity<Object> getPenilaianByNik(@PathVariable String nik) {

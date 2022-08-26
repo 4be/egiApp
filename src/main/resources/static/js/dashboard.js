@@ -36,7 +36,7 @@ $(document).ready(function () {
             ['10 rows', '25 rows', '50 rows', 'Show all']
         ],
         ajax: {
-            url: "/api/penilaian/list/",
+            url: "/api/penilaian/list/best/",
             type: "GET",
             data: "data",
             headers: {Authorization: localStorage.getItem("token")},
@@ -60,21 +60,19 @@ $(document).ready(function () {
         ],
         columns: [
             {data: "id", class: "tbl-center d-none"},
-            {data: "pemecahanMasalah", class: "tbl-center d-none"},
+            {data: "nikpenilai", class: "tbl-center d-none"},
+            {data: "niktujuan", class: "tbl-center"},
+            {data: "divisi", class: "tbl-center"},
+            {data: "tanggungJawab", class: "tbl-center d-none"},
             {data: "inisiatif", class: "tbl-center d-none"},
-            {data: "loyalitas", class: "tbl-center d-none"},
-            {data: "motivasi", class: "tbl-center d-none"},
             {data: "etikaKomunikasi", class: "tbl-center d-none"},
             {data: "displinKehadiran", class: "tbl-center d-none"},
             {data: "kerapihan", class: "tbl-center d-none"},
-            {data: "tanggungJawab", class: "tbl-center d-none"},
-            {data: "keterampilan", class: "tbl-center d-none"},
+            {data: "kualitasPekerjaan", class: "tbl-center d-none"},
             {data: "kecepatanKerja", class: "tbl-center d-none"},
-            {data: "user_id", class: "tbl-center "},
             {data: "mengetahuiPekerjaan", class: "tbl-center d-none"},
-            {data: "kualitasPekerjaan", class: "tbl-center "},
-            {data: "categoryname", class: "tbl-center d-none"},
-            {data: "niktujuan", class: "tbl-center d-none"}
+            {data: "totalNilai", class: "tbl-center "},
+            {data: "kerjaSama", class: "tbl-center d-none"},
         ],
     });
     // table.on('draw.dt', function () {
@@ -124,7 +122,7 @@ $(document).ready(function () {
             ['10 rows', '25 rows', '50 rows', 'Show all']
         ],
         ajax: {
-            url: "/api/penilaian/list/",
+            url: "/api/penilaian/list/worst/",
             type: "GET",
             data: "data",
             headers: {Authorization: localStorage.getItem("token")},
@@ -142,27 +140,25 @@ $(document).ready(function () {
             targets: [0, 9, 10]
         }],
         ScrollX: false,
-        order: [[0, 'desc']],
+        order: [[2, 'asc']],
         columnDefs: [
             {"width": "20%", "targets": 0}
         ],
         columns: [
             {data: "id", class: "tbl-center d-none"},
-            {data: "pemecahanMasalah", class: "tbl-center d-none"},
+            {data: "nikpenilai", class: "tbl-center d-none"},
+            {data: "niktujuan", class: "tbl-center"},
+            {data: "divisi", class: "tbl-center"},
+            {data: "tanggungJawab", class: "tbl-center d-none"},
             {data: "inisiatif", class: "tbl-center d-none"},
-            {data: "loyalitas", class: "tbl-center d-none"},
-            {data: "motivasi", class: "tbl-center d-none"},
             {data: "etikaKomunikasi", class: "tbl-center d-none"},
             {data: "displinKehadiran", class: "tbl-center d-none"},
             {data: "kerapihan", class: "tbl-center d-none"},
-            {data: "tanggungJawab", class: "tbl-center d-none"},
-            {data: "keterampilan", class: "tbl-center d-none"},
+            {data: "kualitasPekerjaan", class: "tbl-center d-none"},
             {data: "kecepatanKerja", class: "tbl-center d-none"},
-            {data: "user_id", class: "tbl-center "},
             {data: "mengetahuiPekerjaan", class: "tbl-center d-none"},
-            {data: "kualitasPekerjaan", class: "tbl-center d-none "},
-            {data: "categoryname", class: "tbl-center d-none"},
-            {data: "niktujuan", class: "tbl-center "}
+            {data: "totalNilai", class: "tbl-center "},
+            {data: "kerjaSama", class: "tbl-center d-none"},
         ],
     });
     // table.on('draw.dt', function () {
