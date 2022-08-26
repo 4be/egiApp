@@ -1,9 +1,9 @@
 package com.egiapp.demo.model.entity;
 
 public enum ERole {
+    HRD,
     PENINJAU,
     GL,
-    SPV,
+    KADEPT,
     PEGAWAI,
-    HRD
 }

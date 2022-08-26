@@ -30,7 +30,9 @@ $("#login").click(function () {
                     localStorage.setItem("nama", result.data.nama);
                     localStorage.setItem("role", result.data.role);
                     localStorage.setItem("nikmanager", result.data.nikmanager);
+                    localStorage.setItem("user_id", result.data.id);
                     location.href = "/hcms/";
+
                 } else if (result.data.role == 'HRD') {
                     localStorage.setItem("token", result.data.token);
                     localStorage.setItem("nama", result.data.nama);

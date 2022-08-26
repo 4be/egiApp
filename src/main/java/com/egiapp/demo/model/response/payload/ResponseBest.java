@@ -1,20 +1,19 @@
 package com.egiapp.demo.model.response.payload;
 
-import com.egiapp.demo.model.entity.User;
 import lombok.AllArgsConstructor;
 import lombok.Data;
-import lombok.NoArgsConstructor;
 
-import javax.persistence.Column;
-import javax.persistence.ManyToOne;
 
 @Data
 @AllArgsConstructor
-@NoArgsConstructor
-public class PenilaianResponse {
-
-
+public class ResponseBest {
     private Long id;
+
+    private String nikpenilai;
+
+    private String niktujuan;
+
+    private String divisi;
 
     private Long tanggungJawab;
 
@@ -35,9 +34,5 @@ public class PenilaianResponse {
     private Long mengetahuiPekerjaan;
 
     private Double totalNilai;
-
-    private String nikPenilai;
-
-    private String niktujuan;
 
 }

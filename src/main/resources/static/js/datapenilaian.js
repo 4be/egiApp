@@ -1,4 +1,7 @@
 var data = null;
+let yoman = "gas";
+
+
 $(document).ready(function () {
     $('#sihapus').hide();
     $('#siubah').hide();
@@ -10,13 +13,13 @@ $(document).ready(function () {
             text: "<i class=\"fas fa-download\"></i> Export CSV",
             extend: 'csv',
             exportOptions: {
-                columns: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16]
+                columns: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
             }
         }, {
             text: "<i class=\"fas fa-download\"></i> Export Excel",
             extend: 'excel',
             exportOptions: {
-                columns: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16]
+                columns: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
             },
             title: function () {
                 let date = new Date().toLocaleDateString();
@@ -48,25 +51,23 @@ $(document).ready(function () {
             orderable: false,
             targets: [0, 9, 10]
         }],
+
         ScrollX: true,
-        order: [[1, 'asc']],
+        order: [[0, 'asc']],
         columns: [
-            {data: "id", class: "tbl-center "},
-            {data: "niktujuan", class: "tbl-center "},
-            {data: "user_id", class: "tbl-center "},
-            {data: "pemecahanMasalah", class: "tbl-center "},
-            {data: "inisiatif", class: "tbl-center "},
-            {data: "loyalitas", class: "tbl-center "},
-            {data: "motivasi", class: "tbl-center "},
-            {data: "etikaKomunikasi", class: "tbl-center "},
-            {data: "displinKehadiran", class: "tbl-center "},
-            {data: "kerapihan", class: "tbl-center "},
-            {data: "tanggungJawab", class: "tbl-center "},
-            {data: "keterampilan", class: "tbl-center "},
-            {data: "kecepatanKerja", class: "tbl-center "},
-            {data: "mengetahuiPekerjaan", class: "tbl-center "},
-            {data: "kualitasPekerjaan", class: "tbl-center  "},
-            {data: "categoryname", class: "tbl-center "}
+            {data: "id", class: "tbl-center"},
+            {data: "nikpenilai", class: "tbl-center"},
+            {data: "niktujuan", class: "tbl-center"},
+            {data: "tanggungJawab", class: "tbl-center"},
+            {data: "inisiatif", class: "tbl-center"},
+            {data: "etikaKomunikasi", class: "tbl-center"},
+            {data: "displinKehadiran", class: "tbl-center"},
+            {data: "kerapihan", class: "tbl-center"},
+            {data: "kualitasPekerjaan", class: "tbl-center"},
+            {data: "kecepatanKerja", class: "tbl-center"},
+            {data: "mengetahuiPekerjaan", class: "tbl-center"},
+            {data: "kerjaSama", class: "tbl-center"},
+            {data: "totalNilai", class: "tbl-center"}
         ],
     });
     // table.on('draw.dt', function () {

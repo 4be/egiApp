@@ -62,7 +62,7 @@ public class WebController {
 
     @GetMapping("/hcms/hrd")
     public String indexHrd(Model model) {
-        model.addAttribute("title", "Dashboard");
+        model.addAttribute("title", "Dashboard hrd");
         return "dashboard_hrd";
     }
 

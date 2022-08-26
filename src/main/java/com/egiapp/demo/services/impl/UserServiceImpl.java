@@ -275,9 +275,9 @@ public class UserServiceImpl implements UserService {
                 Role GLRole = roleRepository.findByRolename(ERole.GL);
                 roles.add(GLRole);
                 break;
-            case "SPV":
-                Role SPVRole = roleRepository.findByRolename(ERole.SPV);
-                roles.add(SPVRole);
+            case "KADEPT":
+                Role KDRole = roleRepository.findByRolename(ERole.KADEPT);
+                roles.add(KDRole);
                 break;
             case "HRD":
                 Role HRDRole = roleRepository.findByRolename(ERole.HRD);

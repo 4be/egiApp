@@ -1,24 +1,20 @@
-package com.egiapp.demo.dto;
-
+package com.egiapp.demo.model.response.payload;
 
 import com.egiapp.demo.model.entity.User;
-import lombok.Getter;
-import lombok.Setter;
-import org.springframework.web.multipart.MultipartFile;
+import lombok.AllArgsConstructor;
+import lombok.Data;
 
-import javax.persistence.Column;
-import javax.persistence.ManyToOne;
+@Data
+@AllArgsConstructor
+public class NilaiResponse {
 
-
-@Getter
-@Setter
-public class PenialaianData {
+    private Long id;
 
     private Long tanggungJawab;
 
     private Long inisiatif;
 
-    private Long KerjaSama; //loyalitas
+    private Long KerjaSama;
 
     private Long etikaKomunikasi;
 
@@ -31,14 +27,11 @@ public class PenialaianData {
     private Long kecepatanKerja;
 
     private Long mengetahuiPekerjaan;
-
-    private Long bobot;
-
+    
     private Double totalNilai;
 
-    private User user_id;
+    private String nikpenilai;
 
     private String niktujuan;
-
 
 }

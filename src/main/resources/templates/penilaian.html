@@ -16,13 +16,13 @@
     <h5 class="h3 mb-2 text-gray-800" th:text="${title}"></h5>
     <br>
     <div class="alert alert-success alert-dismissible fade show" id="sisukses" role="alert">
-        <strong>Sukses !</strong> User berhasil ditambahkan.
+        <strong>Sukses !</strong> Penilaian berhasil dilakukan
         <button aria-label="Close" class="close" data-dismiss="alert" type="button">
             <span aria-hidden="true">&times;</span>
         </button>
     </div>
     <div class="alert alert-danger alert-dismissible fade show" id="sigagal" role="alert">
-        <strong>Gagal !</strong> Nik / Email sudah digunakan.
+        <strong>Gagal !</strong> Penilaian gagal data tidak cocok
         <button aria-label="Close" class="close" data-dismiss="alert" type="button">
             <span aria-hidden="true">&times;</span>
         </button>
@@ -145,9 +145,20 @@
 
                 <div class="form-group">
                     <label for="niktujuan">Masukan nik yang dinilai</label>
-                    <input class="form-control" id="niktujuan" name="niktujuan"
-                           placeholder="Nik"
-                           type="text">
+                    <select class="form-control" id="niktujuan"
+                            name="niktujuan">
+                        <option disabled selected>Pilih Nik / Nama</option>
+                        <option value="1">PG0005 Dadang</option>
+                        <option value="2">PG0004 Rusman</option>
+                        <option value="3">PG0003 Arie</option>
+                        <option value="4">PG0002 Dendy</option>
+                        <option value="5">PG0001 Fikri</option>
+                        <option value="6">PG0000 Dika</option>
+                        <option value="7">GL0001 Rima</option>
+                        <option value="8">GL0000 Basiru</option>
+                        <option value="9">PN0000 Martin</option>
+                        <option value="10">PN0001 Davi</option>
+                    </select>
                     <div class="valid-feedback">Valid.</div>
                     <div class="invalid-feedback">Please fill out this field.</div>
                 </div>
@@ -163,22 +174,32 @@
                     <tbody>
 
                     <tr>
-                        <th scope="row">1</th>
-                        <td>Pemecahan masalah</td>
+                        <th scope="row">2</th>
+                        <td>Tanggung jawab</td>
                         <td>
                             <div class="form-group">
-                                <select class="form-select form-select-lg mb-3" id="pemecahanMasalah"
-                                        name="pemecahanMasalah">
-                                    <option selected value="A">A</option>
-                                    <option value="B">B</option>
-                                    <option value="C">C</option>
-                                    <option value="D">D</option>
+                                <select class="form-select form-select-lg mb-3" id="tanggungJawab"
+                                        name="tanggungJawab">
+                                    <option disabled selected>&nbsp;</option>
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                    <option value="5">5</option>
+                                    <option value="6">6</option>
+                                    <option value="7">7</option>
+                                    <option value="8">8</option>
+                                    <option value="9">9</option>
+                                    <option value="10">10</option>
+                                    <option value="11">11</option>
+                                    <option value="12">12</option>
                                 </select>
                                 <div class="valid-feedback">Valid.</div>
                                 <div class="invalid-feedback">Please fill out this field.</div>
                             </div>
                         </td>
                     </tr>
+
                     <tr>
                         <th scope="row">2</th>
                         <td>Inisiatif</td>
@@ -186,44 +207,75 @@
                             <div class="form-group">
                                 <select class="form-select form-select-lg mb-3" id="inisiatif"
                                         name="inisiatif">
-                                    <option selected value="A">A</option>
-                                    <option value="B">B</option>
-                                    <option value="C">C</option>
-                                    <option value="D">D</option>
+                                    <option disabled selected>&nbsp;</option>
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                    <option value="5">5</option>
+                                    <option value="6">6</option>
+                                    <option value="7">7</option>
+                                    <option value="8">8</option>
+                                    <option value="9">9</option>
+                                    <option value="10">10</option>
+                                    <option value="11">11</option>
+                                    <option value="12">12</option>
                                 </select>
                                 <div class="valid-feedback">Valid.</div>
                                 <div class="invalid-feedback">Please fill out this field.</div>
                             </div>
                         </td>
                     </tr>
+
                     <tr>
                         <th scope="row">3</th>
-                        <td>loyalitas</td>
+                        <td>kerjaSama</td>
                         <td>
                             <div class="form-group">
-                                <select class="form-select form-select-lg mb-3" id="loyalitas"
-                                        name="loyalitas">
-                                    <option selected value="A">A</option>
-                                    <option value="B">B</option>
-                                    <option value="C">C</option>
-                                    <option value="D">D</option>
+                                <select
+                                    class="form-select form-select-lg mb-3"
+                                    id="KerjaSama"
+                                    name="KerjaSama"
+                                >
+                                    <option disabled selected>&nbsp;</option>
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                    <option value="5">5</option>
+                                    <option value="6">6</option>
+                                    <option value="7">7</option>
+                                    <option value="8">8</option>
+                                    <option value="9">9</option>
+                                    <option value="10">10</option>
+                                    <option value="11">11</option>
+                                    <option value="12">12</option>
                                 </select>
                                 <div class="valid-feedback">Valid.</div>
                                 <div class="invalid-feedback">Please fill out this field.</div>
                             </div>
                         </td>
                     </tr>
+
+
                     <tr>
                         <th scope="row">4</th>
-                        <td>Motivasi</td>
+                        <td>Etika komunikasi</td>
                         <td>
                             <div class="form-group">
-                                <select class="form-select form-select-lg mb-3" id="motivasi"
-                                        name="motivasi">
-                                    <option selected value="A">A</option>
-                                    <option value="B">B</option>
-                                    <option value="C">C</option>
-                                    <option value="D">D</option>
+                                <select class="form-select form-select-lg mb-3" id="etikaKomunikasi"
+                                        name="etikaKomunikasi">
+                                    <option disabled selected>&nbsp;</option>
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                    <option value="5">5</option>
+                                    <option value="6">6</option>
+                                    <option value="7">7</option>
+                                    <option value="8">8</option>
+                                    <option value="9">9</option>
+                                    <option value="10">10</option>
                                 </select>
                                 <div class="valid-feedback">Valid.</div>
                                 <div class="invalid-feedback">Please fill out this field.</div>
@@ -232,15 +284,26 @@
                     </tr>
                     <tr>
                         <th scope="row">5</th>
-                        <td>Etika Komunikasi</td>
+                        <td>Disiplin dan
+                            kehadiran
+                        </td>
                         <td>
                             <div class="form-group">
-                                <select class="form-select form-select-lg mb-3" id="etikaKomunikasi"
-                                        name="etikaKomunikasi">
-                                    <option selected value="A">A</option>
-                                    <option value="B">B</option>
-                                    <option value="C">C</option>
-                                    <option value="D">D</option>
+                                <select class="form-select form-select-lg mb-3" id="displinKehadiran"
+                                        name="displinKehadiran">
+                                    <option disabled selected>&nbsp;</option>
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                    <option value="5">5</option>
+                                    <option value="6">6</option>
+                                    <option value="7">7</option>
+                                    <option value="8">8</option>
+                                    <option value="9">9</option>
+                                    <option value="10">10</option>
+                                    <option value="11">11</option>
+                                    <option value="12">12</option>
                                 </select>
                                 <div class="valid-feedback">Valid.</div>
                                 <div class="invalid-feedback">Please fill out this field.</div>
@@ -249,16 +312,25 @@
                     </tr>
                     <tr>
                         <th scope="row">6</th>
-                        <td>Displin Kehadiran</td>
+                        <td>Kerapihan</td>
                         <td>
                             <div class="form-group">
                                 <select aria-label=".form-select-lg example" class="form-select form-select-lg mb-3"
-                                        id="displinKehadiran"
-                                        name="displinKehadiran">
-                                    <option selected value="A">A</option>
-                                    <option value="B">B</option>
-                                    <option value="C">C</option>
-                                    <option value="D">D</option>
+                                        id="kerapihan"
+                                        name="kerapihan">
+                                    <option disabled selected>&nbsp;</option>
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                    <option value="5">5</option>
+                                    <option value="6">6</option>
+                                    <option value="7">7</option>
+                                    <option value="8">8</option>
+                                    <option value="9">9</option>
+                                    <option value="10">10</option>
+                                    <option value="11">11</option>
+                                    <option value="12">12</option>
                                 </select>
                                 <div class="valid-feedback">Valid.</div>
                                 <div class="invalid-feedback">Please fill out this field.</div>
@@ -267,16 +339,23 @@
                     </tr>
                     <tr>
                         <th scope="row">7</th>
-                        <td>Kerapihan & Penampilan</td>
+                        <td>Kualitas pekerjaan</td>
                         <td>
                             <div class="form-group">
                                 <select aria-label=".form-select-lg example" class="form-select form-select-lg mb-3"
-                                        id="kerapihan"
-                                        name="kerapihan">
-                                    <option selected value="A">A</option>
-                                    <option value="B">B</option>
-                                    <option value="C">C</option>
-                                    <option value="D">D</option>
+                                        id="kualitasPekerjaan"
+                                        name="kualitasPekerjaan">
+                                    <option disabled selected>&nbsp;</option>
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                    <option value="5">5</option>
+                                    <option value="6">6</option>
+                                    <option value="7">7</option>
+                                    <option value="8">8</option>
+                                    <option value="9">9</option>
+                                    <option value="10">10</option>
                                 </select>
                                 <div class="valid-feedback">Valid.</div>
                                 <div class="invalid-feedback">Please fill out this field.</div>
@@ -285,16 +364,27 @@
                     </tr>
                     <tr>
                         <th scope="row">8</th>
-                        <td>Tanggung jawab</td>
+                        <td>Kecepatan kerja dan
+                            kesigapan
+                        </td>
                         <td>
                             <div class="form-group">
                                 <select aria-label=".form-select-lg example" class="form-select form-select-lg mb-3"
-                                        id="tanggungJawab"
-                                        name="tanggungJawab">
-                                    <option selected value="A">A</option>
-                                    <option value="B">B</option>
-                                    <option value="C">C</option>
-                                    <option value="D">D</option>
+                                        id="kecepatanKerja"
+                                        name="kecepatanKerja">
+                                    <option disabled selected>&nbsp;</option>
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                    <option value="5">5</option>
+                                    <option value="6">6</option>
+                                    <option value="7">7</option>
+                                    <option value="8">8</option>
+                                    <option value="9">9</option>
+                                    <option value="10">10</option>
+                                    <option value="11">11</option>
+                                    <option value="12">12</option>
                                 </select>
                                 <div class="valid-feedback">Valid.</div>
                                 <div class="invalid-feedback">Please fill out this field.</div>
@@ -303,72 +393,32 @@
                     </tr>
                     <tr>
                         <th scope="row">9</th>
-                        <td>Kualitas pekerjaan</td>
-                        <td>
-                            <div class="form-group">
-                                <select aria-label=".form-select-lg example" class="form-select form-select-lg mb-3"
-                                        id="kualitasPekerjaan"
-                                        name="kualitasPekerjaan">
-                                    <option selected value="A">A</option>
-                                    <option value="B">B</option>
-                                    <option value="C">C</option>
-                                    <option value="D">D</option>
-                                </select>
-                                <div class="valid-feedback">Valid.</div>
-                                <div class="invalid-feedback">Please fill out this field.</div>
-                            </div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <th scope="row">10</th>
-                        <td>keterampilan pekerjaan</td>
-                        <td>
-                            <div class="form-group">
-                                <select aria-label=".form-select-lg example" class="form-select form-select-lg mb-3"
-                                        id="keterampilan"
-                                        name="keterampilan">
-                                    <option selected value="A">A</option>
-                                    <option value="B">B</option>
-                                    <option value="C">C</option>
-                                    <option value="D">D</option>
-                                </select>
-                                <div class="valid-feedback">Valid.</div>
-                                <div class="invalid-feedback">Please fill out this field.</div>
-                            </div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <th scope="row">11</th>
-                        <td>Kecepatan kerja</td>
-                        <td>
-                            <div class="form-group">
-                                <select aria-label=".form-select-lg example" class="form-select form-select-lg mb-3"
-                                        id="kecepatanKerja"
-                                        name="kecepatanKerja">
-                                    <option selected value="A">A</option>
-                                    <option value="B">B</option>
-                                    <option value="C">C</option>
-                                    <option value="D">D</option>
-                                </select>
-                                <div class="valid-feedback">Valid.</div>
-                                <div class="invalid-feedback">Please fill out this field.</div>
-                            </div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <th scope="row">12</th>
-                        <td>Pengetahuan mengenai
-                            pekerjaan
+                        <td>Pengetahuan
+                            mengenai pekerjaan
                         </td>
                         <td>
                             <div class="form-group">
                                 <select aria-label=".form-select-lg example" class="form-select form-select-lg mb-3"
                                         id="mengetahuiPekerjaan"
                                         name="mengetahuiPekerjaan">
-                                    <option selected value="A">A</option>
-                                    <option value="B">B</option>
-                                    <option value="C">C</option>
-                                    <option value="D">D</option>
+                                    <option disabled selected>&nbsp;</option>
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                    <option value="5">5</option>
+                                    <option value="6">6</option>
+                                    <option value="7">7</option>
+                                    <option value="8">8</option>
+                                    <option value="9">9</option>
+                                    <option value="10">10</option>
+                                    <option value="11">11</option>
+                                    <option value="12">12</option>
+                                    <option value="13">13</option>
+                                    <option value="14">14</option>
+                                    <option value="15">15</option>
+                                    <option value="16">16</option>
+                                    <option value="17">17</option>
                                 </select>
                                 <div class="valid-feedback">Valid.</div>
                                 <div class="invalid-feedback">Please fill out this field.</div>
