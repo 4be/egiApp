@@ -40,20 +40,6 @@ public class WebController {
     }
 
 
-    @GetMapping("/hcms/create")
-    public String createUser(Model model) {
-        model.addAttribute("title", "Tambah User");
-        return "user/create_user";
-    }
-
-    @GetMapping("/hcms/update/{nik}")
-    public String updateUser(Model model, @PathVariable String nik) {
-        model.addAttribute("title", "Ubah User");
-        User user = userRepository.findUserByNik(nik);
-        model.addAttribute("user", user);
-        return "user/ubah_user";
-    }
-
     @GetMapping("/hcms/datauser")
     public String dataUser(Model model) {
         model.addAttribute("title", "Data User");
@@ -64,6 +50,33 @@ public class WebController {
     public String indexHrd(Model model) {
         model.addAttribute("title", "Dashboard hrd");
         return "dashboard_hrd";
+    }
+
+    @GetMapping("/hcms/hrd/rekap_user")
+    public String rekapuserHrd(Model model) {
+        model.addAttribute("title", "Rekap User");
+        return "hrd/rekap_user";
+    }
+
+    @GetMapping("/hcms/hrd/create_user")
+    public String createUser(Model model) {
+        model.addAttribute("title", "Rekap User");
+        return "hrd/create_user";
+    }
+
+
+    @GetMapping("/hcms/update/{nik}")
+    public String updateUser(Model model, @PathVariable String nik) {
+        model.addAttribute("title", "Ubah User");
+        User user = userRepository.findUserByNik(nik);
+        model.addAttribute("user", user);
+        return "hrd/ubah_user";
+    }
+
+    @GetMapping("/hcms/hrd/rekap_nilai")
+    public String rekapnilaiHrd(Model model) {
+        model.addAttribute("title", "Rekap Nilai");
+        return "hrd/rekap_nilai";
     }
 
 

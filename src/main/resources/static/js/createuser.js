@@ -22,7 +22,7 @@ $("#btnSubmit").click(function () {
             if (data.status == 200) {
                 $("#sisukses").show();
                 setTimeout(function () {
-                    location.href = "/hcms/datauser";
+                    location.href = "/hcms/hrd/rekap_user";
                 }, 1000);
             }
         },
@@ -62,7 +62,7 @@ $("#submit").click(function () {
                 if (result.status == 200) {
                     $("#sisukses").show();
                     setTimeout(function () {
-                        location.href = "/hcms/datauser";
+                        location.href = "/hcms/hrd/rekap_user";
                     }, 1000);
                 } else {
                     $("#sigagal").show();

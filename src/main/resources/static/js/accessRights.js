@@ -2,8 +2,10 @@ if (location.pathname.substr(0, 5) == "/hcms" && localStorage.getItem("token") =
     location.href = "/";
 }
 
-if (location.pathname.substr(0, 5) == "/hcms" && localStorage.getItem("role") != "PENINJAU") {
-    location.href = "/";
+if (location.pathname.substr(0, 5) == "/hcms" && localStorage.getItem("role") != "KADEPT") {
+    if (location.pathname.substr(0, 5) == "/hcms" && localStorage.getItem("role") != "PENINJAU") {
+        location.href = "/";
+    }
 }
 
 

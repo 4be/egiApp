@@ -25,7 +25,7 @@ $("#login").click(function () {
             }
 
             if (result.status == 200) {
-                if (result.data.role == 'PENINJAU') {
+                if (result.data.role == "PENINJAU") {
                     localStorage.setItem("token", result.data.token);
                     localStorage.setItem("nik", result.data.nik);
                     localStorage.setItem("nama", result.data.nama);
@@ -34,7 +34,16 @@ $("#login").click(function () {
                     localStorage.setItem("user_id", result.data.id);
                     location.href = "/hcms/";
 
-                } else if (result.data.role == 'HRD') {
+                } else if (result.data.role == "KADEPT") {
+                    localStorage.setItem("token", result.data.token);
+                    localStorage.setItem("nik", result.data.nik);
+                    localStorage.setItem("nama", result.data.nama);
+                    localStorage.setItem("role", result.data.role);
+                    localStorage.setItem("nikmanager", result.data.nikmanager);
+                    localStorage.setItem("user_id", result.data.id);
+                    location.href = "/hcms/";
+
+                } else if (result.data.role == "HRD") {
                     localStorage.setItem("token", result.data.token);
                     localStorage.setItem("nama", result.data.nama);
                     localStorage.setItem("role", result.data.role);

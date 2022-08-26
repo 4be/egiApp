@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="eng"
-      layout:decorate="~{fragments/main_layout}"
+      layout:decorate="~{fragments/hrd_layout}"
       xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
       xmlns:th="http://www.thymeleaf.org">
 <head>
@@ -14,7 +14,7 @@
     <div class="row">
         <div class="col-xl-4 col-md-4 mt-2">
             <div class="no-arrow">
-                <h5 class="h8 text-gray-800">You're loggin as <b>hrd</b></h5>
+                <h5 class="h8 text-gray-800">You're loggin as <b>HRD</b></h5>
             </div>
         </div>
         <!-- Earnings (Monthly) Card Example -->
@@ -52,13 +52,13 @@
         <!--        </div>-->
     </div>
     <div class="row">
-        <div class="col-lg-6">
+        <div class="col-lg-5">
             <div class="card shadow mb-4">
                 <!-- Card Header - Dropdown -->
                 <div class="card-header py-3">
                     <h6 class="m-0 font-weight-bold text-primary">
                         <i class="fas fa-chart-pie"></i>
-                        Terakhir Melakukan Penilaian
+                        Rekomendasi karyawan training
                     </h6>
 
                 </div>
@@ -70,21 +70,19 @@
                             <thead>
                             <tr>
                                 <th>id</th>
-                                <th>pemecahanMasalah</th>
+                                <th>nikpenilai</th>
+                                <th>Nik</th>
+                                <th>Divisi</th>
+                                <th>tanggungJawab</th>
                                 <th>inisiatif</th>
-                                <th>loyalitas</th>
-                                <th>motivasi</th>
                                 <th>etikaKomunikasi</th>
                                 <th>displinKehadiran</th>
                                 <th>kerapihan</th>
-                                <th>tanggungJawab</th>
-                                <th>keterampilan</th>
-                                <th>kecepatanKerja</th>
-                                <th>Penilai</th>
-                                <th>mengetahuiPekerjaan</th>
-                                <th>categoryname</th>
                                 <th>kualitasPekerjaan</th>
-                                <th>Ternilai</th>
+                                <th>kecepatanKerja</th>
+                                <th>mengetahuiPekerjaan</th>
+                                <th>Total Nilai</th>
+                                <th>kerjaSama</th>
                             </tr>
                             </thead>
                         </table>
@@ -94,11 +92,12 @@
             </div>
         </div>
 
-        <div class="col-lg-6">
+        <div class="col-lg-5">
             <div class="card shadow mb-4">
                 <!-- Card Header - Dropdown -->
                 <div class="card-header py-3">
-                    <h6 class="m-0 font-weight-bold text-primary"><i class="fas fa-chart-pie"></i> Data Nilai Terbaik
+                    <h6 class="m-0 font-weight-bold text-primary"><i class="fas fa-chart-pie"></i> Rekomendasi Karyawan
+                        terbaik
                     </h6>
                 </div>
                 <div class="card-body">
@@ -109,21 +108,19 @@
                             <thead>
                             <tr>
                                 <th>id</th>
-                                <th>pemecahanMasalah</th>
+                                <th>nikpenilai</th>
+                                <th>Nik</th>
+                                <th>Divisi</th>
+                                <th>tanggungJawab</th>
                                 <th>inisiatif</th>
-                                <th>loyalitas</th>
-                                <th>motivasi</th>
                                 <th>etikaKomunikasi</th>
                                 <th>displinKehadiran</th>
                                 <th>kerapihan</th>
-                                <th>tanggungJawab</th>
-                                <th>keterampilan</th>
-                                <th>kecepatanKerja</th>
-                                <th>user_id</th>
-                                <th>mengetahuiPekerjaan</th>
-                                <th>categoryname</th>
                                 <th>kualitasPekerjaan</th>
-                                <th>niktujuan</th>
+                                <th>kecepatanKerja</th>
+                                <th>mengetahuiPekerjaan</th>
+                                <th>Total Nilai</th>
+                                <th>kerjaSama</th>
                             </tr>
                             </thead>
                         </table>

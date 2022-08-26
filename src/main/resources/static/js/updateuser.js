@@ -27,7 +27,7 @@ $("#submit").click(function () {
             headers: {Authorization: localStorage.getItem("token")},
             success: function (result) {
                 if (result.status == 200) {
-                    location.href = "/hcms/datauser";
+                    location.href = "/hcms/hrd/rekap_user";
                 } else {
                     window.location = window.location;
                 }
