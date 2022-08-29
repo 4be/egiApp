@@ -133,7 +133,7 @@ public class PenilaianServiceImpl implements PenilaianInService {
     public NilaiResponse getUserResponse(Penilaian penilaian) {
         NilaiResponse penilaianResponse = new NilaiResponse(
             penilaian.getId(),
-            penilaian.getUser_id().getRegno(),
+            penilaian.getUser_id().getNama(),
             penilaian.getNiktujuan(),
             penilaian.getUser_id().getRoles().iterator().next().getRolename().toString(),
             penilaian.getTanggungJawab(),
