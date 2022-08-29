@@ -65,7 +65,7 @@ public class PenilaianServiceImpl implements PenilaianInService {
             List<ResponseBest> penilaianResponseList = new ArrayList<>();
 
             for (Penilaian penilaian : penilaianList) {
-                ResponseBest penilaianResponse = getUserBest(penilaian);
+                ResponseBest penilaianResponse = getuserworst(penilaian);
                 penilaianResponseList.add(penilaianResponse);
             }
 
@@ -154,7 +154,27 @@ public class PenilaianServiceImpl implements PenilaianInService {
         ResponseBest penilaianBestResponse = new ResponseBest(
             penilaian.getId(),
             penilaian.getUser_id().getNik(),
-            penilaian.getNiktujuan(),
+            penilaian.getUser_id().getNama(),
+            penilaian.getUser_id().getDivisi(),
+            penilaian.getTanggungJawab(),
+            penilaian.getInisiatif(),
+            penilaian.getKerjaSama(),
+            penilaian.getEtikaKomunikasi(),
+            penilaian.getDisplinKehadiran(),
+            penilaian.getKerapihan(),
+            penilaian.getKualitasPekerjaan(),
+            penilaian.getKecepatanKerja(),
+            penilaian.getMengetahuiPekerjaan(),
+            penilaian.getTotalNilai()
+        );
+        return penilaianBestResponse;
+    }
+
+    public ResponseBest getuserworst(Penilaian penilaian) {
+        ResponseBest penilaianBestResponse = new ResponseBest(
+            penilaian.getId(),
+            penilaian.getUser_id().getNik(),
+            penilaian.getUser_id().getNama(),
             penilaian.getUser_id().getDivisi(),
             penilaian.getTanggungJawab(),
             penilaian.getInisiatif(),
