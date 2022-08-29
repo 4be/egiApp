@@ -44,14 +44,14 @@ $(document).ready(function () {
             }
         },
         columnDefs: [{
-            searchable: false,
-            orderable: false,
+            searchable: true,
+            orderable: true,
             targets: [0, 9, 10]
         }],
         ScrollX: true,
-        order: [[1, 'asc']],
+        order: [[0, 'desc']],
         columns: [
-            {data: null},
+            {data: "id", class: "tbl-center"},
             {data: "nik", class: "tbl-center"},
             {data: "nama", class: "tbl-center"},
             {data: "email", class: "tbl-center"},
@@ -63,7 +63,7 @@ $(document).ready(function () {
             {
                 data: "nik",
                 render: function (data) {
-                    return '<a href="/hcms/update/' + data + '"><button id="' + data + '" class="btn btn-info"><span class="fas fa-edit"></span> Ubah</button></a>'
+                    return '<a href="/hcms/hrd/update/' + data + '"><button id="' + data + '" class="btn btn-info"><span class="fas fa-edit"></span> Ubah</button></a>'
                 }
             },
             {
@@ -74,17 +74,17 @@ $(document).ready(function () {
             }
         ],
     });
-    table.on('draw.dt', function () {
-        var PageInfo = $('#dataUser').DataTable().page.info();
-        table.column(0, {page: 'current'}).nodes().each(function (cell, i) {
-            cell.innerHTML = i + 1 + PageInfo.start;
-        });
-    });
+    // table.on('draw.dt', function () {
+    //     var PageInfo = $('#dataUser').DataTable().page.info();
+    //     table.column(0, {page: 'current'}).nodes().each(function (cell, i) {
+    //         cell.innerHTML = i + 1 + PageInfo.start;
+    //     });
+    // });
 });
 
 function deleteUser(obj) {
     var nik = $(obj).attr('id');
-    var confir = confirm("Apakah anda yakin akan menghapus data user ?");
+    var confir = confirm("Apaka h anda yakin akan menghapus data user ?");
     if (confir == true) {
         $.ajax({
             url: "/api/user/nik/" + nik,

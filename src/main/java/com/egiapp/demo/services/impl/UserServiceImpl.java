@@ -120,7 +120,7 @@ public class UserServiceImpl implements UserService {
             Iterable<CSVRecord> csvRecords = csvParser.getRecords();
 
             for (CSVRecord csvRecord : csvRecords) {
-                if (userRepository.existsByUsername(csvRecord.get("nik"))) {
+                if (userRepository.existsByUsername(csvRecord.get("NOREG"))) {
                     continue;
                 }
 
@@ -130,22 +130,24 @@ public class UserServiceImpl implements UserService {
 
                 Set<Role> roles = getRole(csvRecord.get("role").toUpperCase());
 
+
                 User user = new User(
-                    csvRecord.get("nik"),
-                    csvRecord.get("dept"),
+                    csvRecord.get("NOREG"),
                     csvRecord.get("nama"),
-                    csvRecord.get("nik"),
+                    csvRecord.get("NOREG"),
+                    csvRecord.get("dept"),
                     csvRecord.get("alamat"),
                     csvRecord.get("tanggal_lahir"),
                     csvRecord.get("email"),
                     encoder.encode(
-                        csvRecord.get("nik")
+                        csvRecord.get("NOREG")
                     ),
                     csvRecord.get("divisi"),
                     csvRecord.get("nik_manager").isEmpty() ? "-" : csvRecord.get("nik_manager"),
                     Boolean.TRUE,
                     roles
                 );
+
 
                 User save = userRepository.save(user);
 

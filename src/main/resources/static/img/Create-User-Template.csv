@@ -1,3 +1,3 @@
-"nama","nik","alamat","tanggal_lahir","email","divisi","nik_manager","role"
-"Ahmad","M00601","Bandung","1997-06-07","ahmad@gmail.com","IT","M00555","HCM"
-"Erga","M00602","Bandung","1997-06-07","erga@gmail.com","IT","M00555","EMPLOYEE"
+nama,dept,NOREG,alamat,tanggal_lahir,email,divisi,nik_manager,role
+Ahmad,BCO,PG0011,Jakarta,1997-06-07,ahmad@gmail.com,CP2,GL0000,PEGAWAI
+Erga,BCO,PG0010,Bandung,1997-06-07,erga@gmail.com,CP2,GL0001,PEGAWAI

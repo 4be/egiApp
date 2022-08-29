@@ -29,27 +29,28 @@
     </div>
     <br>
 
-    <!--    <div class="card shadow mb-4">-->
-    <!--        <div class="card-header py-3">-->
-    <!--            <h6 class="m-0 font-weight-bold text-primary"><i class="fas fa-file-csv"></i> Tambah User (Upload Data CSV)-->
-    <!--            </h6>-->
-    <!--        </div>-->
-    <!--        <div class="card-body">-->
-    <!--            <div class="row">-->
-    <!--                <div class="col-lg-4">-->
-    <!--                    <a href="/img/Create-User-Template.csv" download="Create-User-Template.csv" target="_blank"-->
-    <!--                       class="btn btn-success">-->
-    <!--                        <i class="fas fa-file-download"></i> Download Template-->
-    <!--                    </a>-->
-    <!--                </div>-->
-    <!--            </div>-->
-    <!--            <br />-->
-    <!--            <form method="POST" enctype="multipart/form-data" id="my-form">-->
-    <!--                <input type="file" name="file" accept=".csv"><br/><br/>-->
-    <!--                <input type="submit" value="Upload" id="btnSubmit" class="btn btn-primary">-->
-    <!--            </form>-->
-    <!--        </div>-->
-    <!--    </div>-->
+    <div class="card shadow mb-4">
+        <div class="card-header py-3">
+            <h6 class="m-0 font-weight-bold text-primary"><i class="fas fa-file-csv"></i> Tambah User (Upload Data CSV)
+            </h6>
+        </div>
+        <div class="card-body">
+            <div class="row">
+                <div class="col-lg-4">
+                    <a class="btn btn-success" download="Create-User-Template.csv" href="/img/Create-User-Template.csv"
+                       target="_blank">
+                        <i class="fas fa-file-download"></i> Download Template
+                    </a>
+                </div>
+            </div>
+            <br/>
+            <form enctype="multipart/form-data" id="my-form" method="POST">
+                <input accept=".csv" name="file" type="file"><br/><br/>
+                <input class="btn btn-primary" id="btnSubmit" type="submit" value="Upload">
+            </form>
+        </div>
+    </div>
+
     <div class="card shadow mb-4">
         <div class="card-header py-3">
             <h6 class="m-0 font-weight-bold text-primary"><i class="fas fa-user-plus"></i> Tambah User (Isi Form)</h6>
