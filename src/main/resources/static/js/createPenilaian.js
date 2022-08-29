@@ -32,16 +32,27 @@ $("#submit").click(function () {
             contentType: false,
             data: form,
             success: function (result) {
-                $("#sisukses").show();
-                setTimeout(function () {
-                    location.reload();
-                }, 1000);
+                console.log(result);
+                if (result.status === 200) {
+                    $("#sisukses").modal("show");
+                    setTimeout(function () {
+                        location.reload();
+                    }, 1500);
+                } else {
+                    $("#sigagal").modal("show");
+                    setTimeout(function () {
+                        location.reload();
+                    }, 1500);
+                }
             },
+            dataType: "json",
             error: function (result) {
-                $("#sigagal").show();
-                setTimeout(function () {
-                    location.reload();
-                }, 1000);
+                if (result.status === 400) {
+                    $("#sigagal").modal("show");
+                    setTimeout(function () {
+                        location.reload();
+                    }, 2000);
+                }
             }
         });
     }

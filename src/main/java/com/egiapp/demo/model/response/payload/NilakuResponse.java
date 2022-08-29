@@ -6,7 +6,7 @@ import lombok.Data;
 @AllArgsConstructor
 @Data
 public class NilakuResponse {
-    private Long id;
+    private String id;
 
     private String nikpenilai;
 

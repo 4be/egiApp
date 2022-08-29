@@ -55,7 +55,7 @@ $(document).ready(function () {
         ScrollX: true,
         order: [[0, 'asc']],
         columns: [
-            {data: "id", class: "tbl-center d-none"},
+            {data: "id", class: "tbl-center"},
             {data: "nikpenilai", class: "tbl-center"},
             {data: "jabatan", class: "tbl-center"},
             {data: "tanggungJawab", class: "tbl-center"},
