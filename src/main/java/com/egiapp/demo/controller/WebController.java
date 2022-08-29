@@ -68,7 +68,7 @@ public class WebController {
     @GetMapping("/hcms/update/{nik}")
     public String updateUser(Model model, @PathVariable String nik) {
         model.addAttribute("title", "Ubah User");
-        User user = userRepository.findUserByNik(nik);
+        User user = userRepository.findUserByRegno(nik);
         model.addAttribute("user", user);
         return "hrd/ubah_user";
     }

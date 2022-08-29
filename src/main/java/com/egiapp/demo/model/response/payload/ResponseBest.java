@@ -13,6 +13,8 @@ public class ResponseBest {
 
     private String niktujuan;
 
+    private String nama;
+
     private String divisi;
 
     private Long tanggungJawab;

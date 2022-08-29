@@ -37,7 +37,7 @@ public class PenilaianController {
     private PenilaianInService penilaianInService;
 
     @PostMapping(value = "/add")
-    public ResponseEntity<ResponseData<PenilaianResponse>> addket(@Valid PenialaianData keteranganData, Errors errors) {
+    public Object addket(@Valid PenialaianData keteranganData, Errors errors) {
 
         ResponseData<PenilaianResponse> responseData = new ResponseData<>();
         Penilaian penilaian = new Penilaian();
@@ -46,9 +46,11 @@ public class PenilaianController {
 
         Integer total = null;
 
-        User user = userRepository.findUserByNik(keteranganData.getUser_id().getNik());
+        User user = userRepository.findUserByRegno(keteranganData.getUser_id().getRegno());
+        User checkniktujuan = userRepository.findUserByRegno(keteranganData.getNiktujuan());
 
         String jabatan = user.getRoles().iterator().next().getRolename().toString();
+//        String niktujuan = checkniktujuan.getNama();
 
 
         Long satsetTanggungJawab = keteranganData.getTanggungJawab();
@@ -88,93 +90,105 @@ public class PenilaianController {
 //        System.out.println("hasil nilai = " + finalscore);
 //        System.out.println("hasil nilai = " + Double.valueOf(finalscore));
 
-        if (jabatan.equals("PENINJAU")) {
+        if (checkniktujuan != null) {
+            try {
+                if (jabatan.equals("PENINJAU")) {
+
+                    Double NilaiAkhirPN =
+                        (satsetTanggungJawab * bobotTanggungJawab) +
+                            (satsetInisiatif * bobotInisiatif) +
+                            (satsetKerjaSama * bobotKerjaSama) +
+                            (satsetEtikaKomunikasi * bobotEtikaKomunikasi) +
+                            (satsetDisplinKehadiran * bobotDisplinKehadiran) +
+                            (satsetKerapihan * bobotKerapihan) +
+                            (satsetKualitasPekerjaan * bobotKualitasPekerjaan) +
+                            (satsetKecepatanKerja * bobotKecepatanKerja) +
+                            (satsetMengetahuiPekerjaan * bobotMengetahuiPekerjaan);
+
+                    String finalscorePN = String.format("%.2f", NilaiAkhirPN);
+
+                    penilaian.setTanggungJawab(keteranganData.getTanggungJawab());
+                    penilaian.setInisiatif(keteranganData.getInisiatif());
+                    penilaian.setKerjaSama(keteranganData.getKerjaSama());
+                    penilaian.setEtikaKomunikasi(keteranganData.getEtikaKomunikasi());
+                    penilaian.setDisplinKehadiran(keteranganData.getDisplinKehadiran());
+                    penilaian.setKerapihan(keteranganData.getKerapihan());
+                    penilaian.setKualitasPekerjaan(keteranganData.getKualitasPekerjaan());
+                    penilaian.setKecepatanKerja(keteranganData.getKecepatanKerja());
+                    penilaian.setMengetahuiPekerjaan(keteranganData.getMengetahuiPekerjaan());
+                    penilaian.setTotalNilai(Double.valueOf(finalscorePN));
+                    penilaian.setUser_id(keteranganData.getUser_id());
+                    penilaian.setNiktujuan(keteranganData.getNiktujuan());
+
+                    keteranganService.create(penilaian);
+
+                    penilaianResponse.setId(penilaian.getId());
+                    penilaianResponse.setTanggungJawab(keteranganData.getTanggungJawab());
+                    penilaianResponse.setInisiatif(keteranganData.getInisiatif());
+                    penilaianResponse.setKerjaSama(keteranganData.getKerjaSama());
+                    penilaianResponse.setEtikaKomunikasi(keteranganData.getEtikaKomunikasi());
+                    penilaianResponse.setDisplinKehadiran(keteranganData.getDisplinKehadiran());
+                    penilaianResponse.setKerapihan(keteranganData.getKerapihan());
+                    penilaianResponse.setKualitasPekerjaan(keteranganData.getKualitasPekerjaan());
+                    penilaianResponse.setKecepatanKerja(keteranganData.getKecepatanKerja());
+                    penilaianResponse.setMengetahuiPekerjaan(keteranganData.getMengetahuiPekerjaan());
+                    penilaianResponse.setTotalNilai(Double.valueOf(finalscorePN));
+                    penilaianResponse.setNikPenilai(user.getRegno());
+                    penilaianResponse.setNiktujuan(keteranganData.getNiktujuan());
 
 
-            Double NilaiAkhirPN =
-                (satsetTanggungJawab * bobotTanggungJawab) +
-                    (satsetInisiatif * bobotInisiatif) +
-                    (satsetKerjaSama * bobotKerjaSama) +
-                    (satsetEtikaKomunikasi * bobotEtikaKomunikasi) +
-                    (satsetDisplinKehadiran * bobotDisplinKehadiran) +
-                    (satsetKerapihan * bobotKerapihan) +
-                    (satsetKualitasPekerjaan * bobotKualitasPekerjaan) +
-                    (satsetKecepatanKerja * bobotKecepatanKerja) +
-                    (satsetMengetahuiPekerjaan * bobotMengetahuiPekerjaan);
+                    responseData.setStatus(200);
+                    responseData.setMessages("success PN");
+                    responseData.setData(penilaianResponse);
+                    return ResponseEntity.ok().body(responseData);
+                }
 
-            String finalscorePN = String.format("%.2f", NilaiAkhirPN);
+                if (jabatan.equals("GL") || jabatan.equals("PEGAWAI")) {
+                    Double NilaiAkhirGL =
+                        (satsetEtikaKomunikasi * GLbobotEtikaKomunikasi) +
+                            (satsetDisplinKehadiran * GLbobotDisplinKehadiran) +
+                            (satsetKerapihan * GLbobotKerapihan);
 
-            penilaian.setTanggungJawab(keteranganData.getTanggungJawab());
-            penilaian.setInisiatif(keteranganData.getInisiatif());
-            penilaian.setKerjaSama(keteranganData.getKerjaSama());
-            penilaian.setEtikaKomunikasi(keteranganData.getEtikaKomunikasi());
-            penilaian.setDisplinKehadiran(keteranganData.getDisplinKehadiran());
-            penilaian.setKerapihan(keteranganData.getKerapihan());
-            penilaian.setKualitasPekerjaan(keteranganData.getKualitasPekerjaan());
-            penilaian.setKecepatanKerja(keteranganData.getKecepatanKerja());
-            penilaian.setMengetahuiPekerjaan(keteranganData.getMengetahuiPekerjaan());
-            penilaian.setTotalNilai(Double.valueOf(finalscorePN));
-            penilaian.setUser_id(keteranganData.getUser_id());
-            penilaian.setNiktujuan(keteranganData.getNiktujuan());
+                    String finalScoreGL = String.format("%.2f", NilaiAkhirGL);
 
-            keteranganService.create(penilaian);
+                    penilaian.setEtikaKomunikasi(keteranganData.getEtikaKomunikasi());
+                    penilaian.setDisplinKehadiran(keteranganData.getDisplinKehadiran());
+                    penilaian.setKerapihan(keteranganData.getKerapihan());
+                    penilaian.setTotalNilai(Double.valueOf(finalScoreGL));
+                    penilaian.setUser_id(keteranganData.getUser_id());
+                    penilaian.setNiktujuan(keteranganData.getNiktujuan());
 
-            penilaianResponse.setId(penilaian.getId());
-            penilaianResponse.setTanggungJawab(keteranganData.getTanggungJawab());
-            penilaianResponse.setInisiatif(keteranganData.getInisiatif());
-            penilaianResponse.setKerjaSama(keteranganData.getKerjaSama());
-            penilaianResponse.setEtikaKomunikasi(keteranganData.getEtikaKomunikasi());
-            penilaianResponse.setDisplinKehadiran(keteranganData.getDisplinKehadiran());
-            penilaianResponse.setKerapihan(keteranganData.getKerapihan());
-            penilaianResponse.setKualitasPekerjaan(keteranganData.getKualitasPekerjaan());
-            penilaianResponse.setKecepatanKerja(keteranganData.getKecepatanKerja());
-            penilaianResponse.setMengetahuiPekerjaan(keteranganData.getMengetahuiPekerjaan());
-            penilaianResponse.setTotalNilai(Double.valueOf(finalscorePN));
-            penilaianResponse.setNikPenilai(user.getNik());
-            penilaianResponse.setNiktujuan(keteranganData.getNiktujuan());
+                    keteranganService.create(penilaian);
+
+                    penilaianResponse.setId(penilaian.getId());
+                    penilaianResponse.setTanggungJawab(keteranganData.getTanggungJawab());
+                    penilaianResponse.setInisiatif(keteranganData.getInisiatif());
+                    penilaianResponse.setKerjaSama(keteranganData.getKerjaSama());
+                    penilaianResponse.setEtikaKomunikasi(keteranganData.getEtikaKomunikasi());
+                    penilaianResponse.setDisplinKehadiran(keteranganData.getDisplinKehadiran());
+                    penilaianResponse.setKerapihan(keteranganData.getKerapihan());
+                    penilaianResponse.setKualitasPekerjaan(keteranganData.getKualitasPekerjaan());
+                    penilaianResponse.setKecepatanKerja(keteranganData.getKecepatanKerja());
+                    penilaianResponse.setMengetahuiPekerjaan(keteranganData.getMengetahuiPekerjaan());
+                    penilaianResponse.setTotalNilai(Double.valueOf(finalScoreGL));
+                    penilaianResponse.setNikPenilai(user.getRegno());
+                    penilaianResponse.setNiktujuan(keteranganData.getNiktujuan());
 
 
-            responseData.setStatus(200);
-            responseData.setMessages("success PN");
-            responseData.setData(penilaianResponse);
-            return ResponseEntity.ok().body(responseData);
-        }
+                    responseData.setStatus(200);
+                    responseData.setMessages("success GL");
+                    responseData.setData(penilaianResponse);
+                    return ResponseEntity.ok().body(responseData);
+                }
 
-        if (jabatan.equals("GL") || jabatan.equals("PEGAWAI")) {
-            Double NilaiAkhirGL =
-                (satsetEtikaKomunikasi * GLbobotEtikaKomunikasi) +
-                    (satsetDisplinKehadiran * GLbobotDisplinKehadiran) +
-                    (satsetKerapihan * GLbobotKerapihan);
-
-            String finalScoreGL = String.format("%.2f", NilaiAkhirGL);
-
-            penilaian.setEtikaKomunikasi(keteranganData.getEtikaKomunikasi());
-            penilaian.setDisplinKehadiran(keteranganData.getDisplinKehadiran());
-            penilaian.setKerapihan(keteranganData.getKerapihan());
-            penilaian.setTotalNilai(Double.valueOf(finalScoreGL));
-            penilaian.setUser_id(keteranganData.getUser_id());
-            penilaian.setNiktujuan(keteranganData.getNiktujuan());
-
-            keteranganService.create(penilaian);
-
-            penilaianResponse.setId(penilaian.getId());
-            penilaianResponse.setTanggungJawab(keteranganData.getTanggungJawab());
-            penilaianResponse.setInisiatif(keteranganData.getInisiatif());
-            penilaianResponse.setKerjaSama(keteranganData.getKerjaSama());
-            penilaianResponse.setEtikaKomunikasi(keteranganData.getEtikaKomunikasi());
-            penilaianResponse.setDisplinKehadiran(keteranganData.getDisplinKehadiran());
-            penilaianResponse.setKerapihan(keteranganData.getKerapihan());
-            penilaianResponse.setKualitasPekerjaan(keteranganData.getKualitasPekerjaan());
-            penilaianResponse.setKecepatanKerja(keteranganData.getKecepatanKerja());
-            penilaianResponse.setMengetahuiPekerjaan(keteranganData.getMengetahuiPekerjaan());
-            penilaianResponse.setTotalNilai(Double.valueOf(finalScoreGL));
-            penilaianResponse.setNikPenilai(user.getNik());
-            penilaianResponse.setNiktujuan(keteranganData.getNiktujuan());
-
-
-            responseData.setStatus(200);
-            responseData.setMessages("success GL");
-            responseData.setData(penilaianResponse);
+            } catch (Exception e) {
+                return e;
+            }
+        } else {
+//            String nope = "nik tujuan tidak ada";
+            responseData.setStatus(400);
+            responseData.setMessages("Error nik tidak ada");
+//            responseData.setData(nope);
             return ResponseEntity.ok().body(responseData);
         }
 

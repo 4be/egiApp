@@ -87,6 +87,7 @@ public class UserServiceImpl implements UserService {
         User user = new User(
             userRequest.getNik(),
             userRequest.getNama(),
+            userRequest.getDept(),
             userRequest.getNik(),
             userRequest.getAlamat(),
             userRequest.getTanggal_lahir(),
@@ -131,6 +132,7 @@ public class UserServiceImpl implements UserService {
 
                 User user = new User(
                     csvRecord.get("nik"),
+                    csvRecord.get("dept"),
                     csvRecord.get("nama"),
                     csvRecord.get("nik"),
                     csvRecord.get("alamat"),
@@ -173,7 +175,7 @@ public class UserServiceImpl implements UserService {
     @Override
     public Object getUserByNik(String nik) {
         try {
-            List<User> userList = Collections.singletonList(userRepository.findUserByNik(nik));
+            List<User> userList = Collections.singletonList(userRepository.findUserByRegno(nik));
 
             List<UserResponse> UserResponseList = new ArrayList<>();
 
@@ -199,7 +201,7 @@ public class UserServiceImpl implements UserService {
                 TeamResponse teamResponse = new TeamResponse(
                     user.getId(),
                     user.getNama(),
-                    user.getNik(),
+                    user.getRegno(),
                     user.getAlamat(),
                     user.getTanggalLahir(),
                     user.getEmail(),
@@ -220,7 +222,7 @@ public class UserServiceImpl implements UserService {
     @Override
     public Object updateUserByNik(UserRequest userRequest, String nik) {
         try {
-            User user = userRepository.findUserByNik(nik);
+            User user = userRepository.findUserByRegno(nik);
             Set<Role> roles = getRole(userRequest.getRole().toUpperCase());
 
             user.setNama(userRequest.getNama());
@@ -254,7 +256,7 @@ public class UserServiceImpl implements UserService {
     @Override
     public Object deleteUserByNik(String nik) {
         try {
-            User user = userRepository.findUserByNik(nik);
+            User user = userRepository.findUserByRegno(nik);
             user.setIsaktif(Boolean.FALSE);
             userRepository.save(user);
             return new SuccessResponse(HttpStatus.OK, "Deleted", "");
@@ -294,7 +296,7 @@ public class UserServiceImpl implements UserService {
         UserResponse userResponse = new UserResponse(
             user.getId(),
             user.getNama(),
-            user.getNik(),
+            user.getRegno(),
             user.getAlamat(),
             user.getTanggalLahir(),
             user.getEmail(),
@@ -309,7 +311,7 @@ public class UserServiceImpl implements UserService {
     public Status getStatus(User user) {
         Status status = new Status(
             user.getId(),
-            user.getNik(),
+            user.getRegno(),
             user.getNama(),
             Boolean.FALSE
         );

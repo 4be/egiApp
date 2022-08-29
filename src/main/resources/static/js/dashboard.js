@@ -61,7 +61,8 @@ $(document).ready(function () {
         columns: [
             {data: "id", class: "tbl-center d-none"},
             {data: "nikpenilai", class: "tbl-center d-none"},
-            {data: "niktujuan", class: "tbl-center"},
+            {data: "niktujuan", class: "tbl-center "},
+            {data: "nama", class: "tbl-center "},
             {data: "divisi", class: "tbl-center"},
             {data: "tanggungJawab", class: "tbl-center d-none"},
             {data: "inisiatif", class: "tbl-center d-none"},
@@ -147,7 +148,8 @@ $(document).ready(function () {
         columns: [
             {data: "id", class: "tbl-center d-none"},
             {data: "nikpenilai", class: "tbl-center d-none"},
-            {data: "niktujuan", class: "tbl-center"},
+            {data: "niktujuan", class: "tbl-center "},
+            {data: "nama", class: "tbl-center "},
             {data: "divisi", class: "tbl-center"},
             {data: "tanggungJawab", class: "tbl-center d-none"},
             {data: "inisiatif", class: "tbl-center d-none"},

@@ -133,7 +133,7 @@ public class PenilaianServiceImpl implements PenilaianInService {
     public NilaiResponse getUserResponse(Penilaian penilaian) {
         NilaiResponse penilaianResponse = new NilaiResponse(
             penilaian.getId(),
-            penilaian.getUser_id().getNik(),
+            penilaian.getUser_id().getRegno(),
             penilaian.getNiktujuan(),
             penilaian.getUser_id().getRoles().iterator().next().getRolename().toString(),
             penilaian.getTanggungJawab(),
@@ -153,7 +153,8 @@ public class PenilaianServiceImpl implements PenilaianInService {
     public ResponseBest getUserBest(Penilaian penilaian) {
         ResponseBest penilaianBestResponse = new ResponseBest(
             penilaian.getId(),
-            penilaian.getUser_id().getNik(),
+            penilaian.getUser_id().getRegno(),
+            penilaian.getNiktujuan(),
             penilaian.getUser_id().getNama(),
             penilaian.getUser_id().getDivisi(),
             penilaian.getTanggungJawab(),
@@ -173,7 +174,8 @@ public class PenilaianServiceImpl implements PenilaianInService {
     public ResponseBest getuserworst(Penilaian penilaian) {
         ResponseBest penilaianBestResponse = new ResponseBest(
             penilaian.getId(),
-            penilaian.getUser_id().getNik(),
+            penilaian.getUser_id().getRegno(),
+            penilaian.getNiktujuan(),
             penilaian.getUser_id().getNama(),
             penilaian.getUser_id().getDivisi(),
             penilaian.getTanggungJawab(),
@@ -194,7 +196,7 @@ public class PenilaianServiceImpl implements PenilaianInService {
     public NilakuResponse getnilaku(Penilaian penilaian) {
         NilakuResponse nilaikuresponse = new NilakuResponse(
             penilaian.getId(),
-            penilaian.getUser_id().getNik(),
+            penilaian.getUser_id().getRegno(),
             penilaian.getUser_id().getRoles().iterator().next().getRolename().toString(),
             penilaian.getTanggungJawab(),
             penilaian.getInisiatif(),

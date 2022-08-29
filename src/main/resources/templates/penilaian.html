@@ -15,18 +15,46 @@
     <!-- Page Heading -->
     <h5 class="h3 mb-2 text-gray-800" th:text="${title}"></h5>
     <br>
-    <div class="alert alert-success alert-dismissible fade show" id="sisukses" role="alert">
-        <strong>Sukses !</strong> Penilaian berhasil dilakukan
-        <button aria-label="Close" class="close" data-dismiss="alert" type="button">
-            <span aria-hidden="true">&times;</span>
-        </button>
+
+    <div class="modal" id="sisukses" role="dialog" tabindex="-1">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">System Indorama</h5>
+                    <button aria-label="Close" class="close" data-dismiss="modal" type="button">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <p>Penilaian berhasil dilakukan</p>
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-primary" type="button">Ok</button>
+                </div>
+            </div>
+        </div>
     </div>
-    <div class="alert alert-danger alert-dismissible fade show" id="sigagal" role="alert">
-        <strong>Gagal !</strong> Penilaian gagal data tidak cocok
-        <button aria-label="Close" class="close" data-dismiss="alert" type="button">
-            <span aria-hidden="true">&times;</span>
-        </button>
+
+    <div class="modal" id="sigagal" role="dialog" tabindex="-1">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">System Indorama</h5>
+                    <button aria-label="Close" class="close" data-dismiss="modal" type="button">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <p>Gagal melakukan Penilaian,</p>
+                    <p>Nik tidak ada / cek kembali input data</p>
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-warning" type="button">Ok</button>
+                </div>
+            </div>
+        </div>
     </div>
+
     <br>
 
     <!--    <div class="card shadow mb-4">-->

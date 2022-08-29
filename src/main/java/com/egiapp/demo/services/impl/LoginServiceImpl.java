@@ -50,7 +50,7 @@ public class LoginServiceImpl implements LoginService {
             LoginResponse loginResponse = new LoginResponse(
                 user.getId(),
                 user.getNama(),
-                user.getNik(),
+                user.getRegno(),
                 user.getNikManager(),
                 user.getAlamat(),
                 user.getTanggalLahir(),

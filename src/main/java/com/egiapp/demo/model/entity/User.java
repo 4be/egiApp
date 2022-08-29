@@ -26,7 +26,10 @@ public class User {
     private String nama;
 
     @Column(length = 20)
-    private String nik;
+    private String regno;
+
+    @Column(length = 20)
+    private String dept;
 
     @Column(length = 100)
     private String alamat;
@@ -55,11 +58,11 @@ public class User {
     private Set<Role> roles = new HashSet<>();
 
 
-
-    public User(String username, String nama, String nik, String alamat, String tanggalLahir, String email, String password, String divisi, String nikManager, Boolean isaktif, Set<Role> roles) {
+    public User(String username, String nama, String regno, String dept, String alamat, String tanggalLahir, String email, String password, String divisi, String nikManager, Boolean isaktif, Set<Role> roles) {
         this.username = username;
         this.nama = nama;
-        this.nik = nik;
+        this.regno = regno;
+        this.dept = dept;
         this.alamat = alamat;
         this.tanggalLahir = tanggalLahir;
         this.email = email;

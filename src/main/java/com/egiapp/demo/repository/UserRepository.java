@@ -20,7 +20,7 @@ public interface UserRepository extends JpaRepository<User, Long> {
 
     Boolean existsByEmail(String email);
 
-    User findUserByNik(String nik);
+    User findUserByRegno(String nik);
 
     List<User> findUserByNikManager(String nikManager);
 

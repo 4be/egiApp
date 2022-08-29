@@ -48,8 +48,6 @@ public class Penilaian implements Serializable {
     @Column(length = 300)
     private Long mengetahuiPekerjaan;
 
-    @Column(length = 300)
-    private Long bobot;
 
     @Column(length = 40)
     private Double totalNilai;
@@ -61,7 +59,7 @@ public class Penilaian implements Serializable {
     private String niktujuan;
 
 
-    public Penilaian(Long id, Long tanggungJawab, Long inisiatif, Long kerjaSama, Long etikaKomunikasi, Long displinKehadiran, Long kerapihan, Long kualitasPekerjaan, Long kecepatanKerja, Long mengetahuiPekerjaan, Long bobot, Double totalNilai, User user_id, String niktujuan) {
+    public Penilaian(Long id, Long tanggungJawab, Long inisiatif, Long kerjaSama, Long etikaKomunikasi, Long displinKehadiran, Long kerapihan, Long kualitasPekerjaan, Long kecepatanKerja, Long mengetahuiPekerjaan, Double totalNilai, User user_id, String niktujuan) {
         this.id = id;
         this.tanggungJawab = tanggungJawab;
         this.inisiatif = inisiatif;
@@ -72,7 +70,6 @@ public class Penilaian implements Serializable {
         this.kualitasPekerjaan = kualitasPekerjaan;
         this.kecepatanKerja = kecepatanKerja;
         this.mengetahuiPekerjaan = mengetahuiPekerjaan;
-        this.bobot = bobot;
         this.totalNilai = totalNilai;
         this.user_id = user_id;
         this.niktujuan = niktujuan;
