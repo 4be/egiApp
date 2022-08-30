@@ -87,8 +87,8 @@ public class UserServiceImpl implements UserService {
         User user = new User(
             userRequest.getNik(),
             userRequest.getNama(),
-            userRequest.getDept(),
             userRequest.getNik(),
+            userRequest.getNik_manager(),
             userRequest.getAlamat(),
             userRequest.getTanggal_lahir(),
             userRequest.getEmail(),

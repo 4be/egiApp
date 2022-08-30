@@ -37,7 +37,7 @@ $("#btnSubmit").click(function () {
 });
 
 $("#submit").click(function () {
-    var confir = confirm("Apakah anda yakin akan melakukan submit ?");
+    var confir = confirm("Apakah anda yakin akan melakukan submit user?");
     if (confir == true) {
         var user = "{" +
             "\"nik\" : \"" + $("#nikKaryawan").val() + "\"," +

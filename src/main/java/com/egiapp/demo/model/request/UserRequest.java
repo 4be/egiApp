@@ -7,7 +7,6 @@ public class UserRequest {
 
     private String nama;
     private String nik;
-    private String dept;
     private String alamat;
     private String tanggal_lahir;
     private String email;
