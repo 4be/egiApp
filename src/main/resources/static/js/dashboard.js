@@ -72,7 +72,11 @@ $(document).ready(function () {
             {data: "kualitasPekerjaan", class: "tbl-center d-none"},
             {data: "kecepatanKerja", class: "tbl-center d-none"},
             {data: "mengetahuiPekerjaan", class: "tbl-center d-none"},
-            {data: "totalNilai", class: "tbl-center "},
+            {
+                data: "totalNilai", class: "tbl-center ", "render": function (data, type, row, meta) {
+                    return '' + ((data > 10) ? data + ' <img class="img-profile rounded-circle" src="/img/crown1.png" width="18" height="50">' : data)
+                }
+            },
             {data: "kerjaSama", class: "tbl-center d-none"},
         ],
     });
@@ -82,7 +86,8 @@ $(document).ready(function () {
     //         cell.innerHTML = i + 1 + PageInfo.start;
     //     });
     // });
-});
+})
+;
 
 
 //last penilaian
@@ -159,7 +164,11 @@ $(document).ready(function () {
             {data: "kualitasPekerjaan", class: "tbl-center d-none"},
             {data: "kecepatanKerja", class: "tbl-center d-none"},
             {data: "mengetahuiPekerjaan", class: "tbl-center d-none"},
-            {data: "totalNilai", class: "tbl-center "},
+            {
+                data: "totalNilai", class: "tbl-center ", "render": function (data, type, row, meta) {
+                    return '' + ((data < 5.5) ? data + ' <img class="img-profile rounded-circle" src="/img/worstlogo.png" width="20" height="40">' : data)
+                }
+            },
             {data: "kerjaSama", class: "tbl-center d-none"},
         ],
     });
@@ -169,7 +178,8 @@ $(document).ready(function () {
     //         cell.innerHTML = i + 1 + PageInfo.start;
     //     });
     // });
-});
+})
+;
 
 //yesterday date
 function handleDate() {
