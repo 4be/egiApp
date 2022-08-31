@@ -41,7 +41,7 @@ $("#login").click(function () {
                     localStorage.setItem("role", result.data.role);
                     localStorage.setItem("nikmanager", result.data.nikmanager);
                     localStorage.setItem("user_id", result.data.id);
-                    location.href = "/hcms/";
+                    location.href = "/hcms/kd";
 
                 } else if (result.data.role == "HRD") {
                     localStorage.setItem("token", result.data.token);

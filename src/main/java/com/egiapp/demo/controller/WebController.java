@@ -52,6 +52,26 @@ public class WebController {
         return "dashboard_hrd";
     }
 
+
+    @GetMapping("/hcms/kd")
+    public String indexKd(Model model) {
+        model.addAttribute("title", "Dashboard KD");
+        return "dashboard_kd";
+    }
+
+    @GetMapping("/hcms/kd/rekap_user")
+    public String rekapuserKD(Model model) {
+        model.addAttribute("title", "Rekap User");
+        return "Kdepartement/rekap_user";
+    }
+
+    @GetMapping("/hcms/kd/rekap_nilai")
+    public String rekapnilaiKD(Model model) {
+        model.addAttribute("title", "Rekap Nilai");
+        return "Kdepartement/rekap_nilai";
+    }
+
+
     @GetMapping("/hcms/hrd/rekap_user")
     public String rekapuserHrd(Model model) {
         model.addAttribute("title", "Rekap User");
