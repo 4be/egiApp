@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="eng"
-      layout:decorate="~{fragments/main_layout.html}"
+      layout:decorate="~{fragments/main_layout}"
       xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
       xmlns:th="http://www.thymeleaf.org">
 <head>
@@ -40,7 +40,7 @@
                                 <input class="form-control" id="nikKaryawan" name="nikKaryawan"
                                        placeholder="Masukkan NIK"
                                        readonly
-                                       th:value="${user.nik}"
+                                       th:value="${user.regno}"
                                        type="text">
                                 <div class="valid-feedback">Valid.</div>
                                 <div class="invalid-feedback">Please fill out this field.</div>
