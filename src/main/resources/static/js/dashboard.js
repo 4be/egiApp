@@ -72,13 +72,14 @@ $(document).ready(function () {
             {data: "kualitasPekerjaan", class: "tbl-center d-none"},
             {data: "kecepatanKerja", class: "tbl-center d-none"},
             {data: "mengetahuiPekerjaan", class: "tbl-center d-none"},
-            {
-                data: "totalNilai", class: "tbl-center ", "render": function (data, type, row, meta) {
-                    return '' + ((data > 10) ? data + ' <img class="img-profile rounded-circle" src="/img/crown1.png" width="18" height="50">' : data)
-                }
-            },
+            {data: "totalNilai", class: "tbl-center"},
             {data: "kerjaSama", class: "tbl-center d-none"},
         ],
+        "createdRow": function (row, data, dataIndex, cells) {
+            if (data.totalNilai > 10) {
+                $(cells[13]).css('background-color', "#aeffae")
+            }
+        }
     });
     // table.on('draw.dt', function () {
     //     var PageInfo = $('#dataPenilaian').DataTable().page.info();
@@ -164,13 +165,14 @@ $(document).ready(function () {
             {data: "kualitasPekerjaan", class: "tbl-center d-none"},
             {data: "kecepatanKerja", class: "tbl-center d-none"},
             {data: "mengetahuiPekerjaan", class: "tbl-center d-none"},
-            {
-                data: "totalNilai", class: "tbl-center ", "render": function (data, type, row, meta) {
-                    return '' + ((data < 5.5) ? data + ' <img class="img-profile rounded-circle" src="/img/worstlogo.png" width="20" height="40">' : data)
-                }
-            },
+            {data: "totalNilai", class: "tbl-center "},
             {data: "kerjaSama", class: "tbl-center d-none"},
         ],
+        "createdRow": function (row, data, dataIndex, cells) {
+            if (data.totalNilai < 5.5) {
+                $(cells[13]).css('background-color', "rgb(255 203 203)")
+            }
+        }
     });
     // table.on('draw.dt', function () {
     //     var PageInfo = $('#dataPenilaian').DataTable().page.info();
